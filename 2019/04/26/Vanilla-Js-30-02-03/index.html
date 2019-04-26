@@ -2,20 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Categorias - Hexo</title>
+<title>Vanilla Js 30 - 02~03 - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="keywords" content="javascript, FEstudy">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://racepark.github.io/categories/index.html">
+    <meta name="description" content="02. JS and CSS ClockDate 객체를 이용하여 시계바늘을 돌아가게 만든다. 1234567&amp;lt;div class=&quot;clock&quot;&amp;gt;    &amp;lt;div class=&quot;clock-face&quot;&amp;gt;        &amp;lt;div class=&quot;hand hour-hand&quot;&amp;gt;&amp;lt;/div&amp;gt;        &amp;lt;div class=&quot;hand mi">
+<meta name="keywords" content="javascript, FEstudy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vanilla Js 30 - 02~03">
+<meta property="og:url" content="http://racepark.github.io/2019/04/26/Vanilla-Js-30-02-03/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="02. JS and CSS ClockDate 객체를 이용하여 시계바늘을 돌아가게 만든다. 1234567&amp;lt;div class=&quot;clock&quot;&amp;gt;    &amp;lt;div class=&quot;clock-face&quot;&amp;gt;        &amp;lt;div class=&quot;hand hour-hand&quot;&amp;gt;&amp;lt;/div&amp;gt;        &amp;lt;div class=&quot;hand mi">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://racepark.github.io/images/og_image.png">
+<meta property="og:updated_time" content="2019-04-26T16:47:39.695Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Vanilla Js 30 - 02~03">
+<meta name="twitter:description" content="02. JS and CSS ClockDate 객체를 이용하여 시계바늘을 돌아가게 만든다. 1234567&amp;lt;div class=&quot;clock&quot;&amp;gt;    &amp;lt;div class=&quot;clock-face&quot;&amp;gt;        &amp;lt;div class=&quot;hand hour-hand&quot;&amp;gt;&amp;lt;/div&amp;gt;        &amp;lt;div class=&quot;hand mi">
 <meta name="twitter:image" content="http://racepark.github.io/images/og_image.png">
 
 
@@ -90,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="Vanilla Js 30 - 02~03" height="28">
             
             </a>
         </div>
@@ -102,7 +106,7 @@
                 
                 <a class="navbar-item" href="/archives">Archives</a>
                 
-                <a class="navbar-item is-active" href="/categories">Categories</a>
+                <a class="navbar-item" href="/categories">Categories</a>
                 
                 <a class="navbar-item" href="/tags">Tags</a>
                 
@@ -135,19 +139,109 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Categorias
-            </h3>
-            <ul class="menu-list">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-25T15:53:49.000Z">2019-04-26</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes read (About 226 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-            </ul>
+                Vanilla Js 30 - 02~03
+            
+        </h1>
+        <div class="content">
+            <h2 id="02-JS-and-CSS-Clock"><a href="#02-JS-and-CSS-Clock" class="headerlink" title="02. JS and CSS Clock"></a>02. JS and CSS Clock</h2><p>Date 객체를 이용하여 시계바늘을 돌아가게 만든다.</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clock"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clock-face"</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hand hour-hand"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hand min-hand"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hand second-hand"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> now = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();</span><br><span class="line"><span class="hljs-comment">// 초를 가져온다.</span></span><br><span class="line"><span class="hljs-keyword">const</span> seconds = now.getSeconds();</span><br><span class="line"><span class="hljs-keyword">const</span> secondsDegree = seconds / <span class="hljs-number">60</span> * <span class="hljs-number">360</span> + <span class="hljs-number">90</span>;</span><br><span class="line">secondHand.style.transform = <span class="hljs-string">`rotate(<span class="hljs-subst">$&#123;secondsDegree&#125;</span>deg)`</span>;</span><br><span class="line"><span class="hljs-comment">// 분을 가져온다.</span></span><br><span class="line"><span class="hljs-keyword">const</span> mins = now.getMinutes();</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//1초 마다 setDate함수를 반복 호출</span></span><br><span class="line">setInterval(setDate, <span class="hljs-number">1000</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="03-CSS-Variables"><a href="#03-CSS-Variables" class="headerlink" title="03. CSS Variables"></a>03. CSS Variables</h2><p><a href="https://wit.nts-corp.com/2017/06/27/4731" target="_blank" rel="noopener">CSS 커스텀 속성</a>을 활용한다.</p>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-pseudo">:root</span> &#123;</span><br><span class="line">    <span class="hljs-attribute">--base</span>: yellow;</span><br><span class="line">    <span class="hljs-attribute">--spacing</span>: <span class="hljs-number">10px</span>;</span><br><span class="line">    <span class="hljs-attribute">--blur</span>: <span class="hljs-number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-tag">img</span>&#123;</span><br><span class="line">    <span class="hljs-attribute">padding</span>: <span class="hljs-built_in">var</span>(--spacing);</span><br><span class="line">    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--base);</span><br><span class="line">    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">blur</span>(var(--blur));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// data 속성 사용(dataset은 IE11부터, 10이하는 getAttribute() 사용)</span></span><br><span class="line"><span class="hljs-keyword">const</span> suffix = <span class="hljs-keyword">this</span>.dataset.sizing || <span class="hljs-string">''</span>;</span><br><span class="line"><span class="hljs-comment">// 각 input의 value를 &lt;html&gt;의 CSS CUSTOM 속성값으로 할당</span></span><br><span class="line"><span class="hljs-built_in">document</span>.documentElement.style.setProperty(<span class="hljs-string">`--<span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.name&#125;</span>`</span>, <span class="hljs-keyword">this</span>.value + suffix);</span><br><span class="line"></span><br><span class="line">input.forEach(<span class="hljs-function"><span class="hljs-params">input</span> =&gt;</span> input.addEventListener(<span class="hljs-string">'change'</span>, handleUpdate));</span><br></pre></td></tr></table></figure>
+<p>작성자가 정의하는 속성의 집합인 <code>--var-name</code>.(사용: <code>var(var-name)</code>);<br>HTML 요소에 추가적으로 데이터를 저장할 수 있게 해주는 <code>data-*</code>.<br>커스텀 속성을 스크립트에서 유용하게 사용하기. </p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/javascript-FEstudy/">javascript, FEstudy</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Suka dengan artikel ini? Bantu penulis dengan donasi melalui</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
         </div>
     </div>
-</div></div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/04/25/Vanilla-Js-30-01/">
+                <span class="level-item">Vanilla Js 30 - 01</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
                 
 
 
@@ -570,7 +664,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="Vanilla Js 30 - 02~03" height="28">
                 
                 </a>
                 <p class="is-size-7">
