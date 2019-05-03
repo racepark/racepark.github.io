@@ -2,7 +2,7 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: FEstudy - Race&#39;s Blog</title>
+<title>Etiqueta: FEstudy - Race&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -138,12 +138,65 @@
     <div class="card-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/tags">Tags</a></li>
+            <li><a href="/tags">Etiquetas</a></li>
             <li class="is-active"><a href="#" aria-current="page">FEstudy</a></li>
         </ul>
         </nav>
     </div>
 </div>
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-02T05:45:24.000Z">2019-05-02</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/TIL/">TIL</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes read (About 489 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/05/02/Vanilla-Js-30-04-05/">Vanilla Js 30 - 04~05</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="04-Array-Cardio-Day-1"><a href="#04-Array-Cardio-Day-1" class="headerlink" title="04. Array Cardio Day 1"></a>04. Array Cardio Day 1</h2><p>Array 기본 내장 메서드를 활용하여 제공 된 데이터를 변경한다.   </p>
+<p><strong>filter</strong><br><code>Array.prototype.filter()</code><br>특정 조건에 맞는 요소들을 골라 낼 때<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> fifteen = inventors.filter(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">inventor</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(inventor.year &gt;= <span class="hljs-number">1500</span> &amp;&amp; inventor.year &lt;= <span class="hljs-number">1600</span>)&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="hljs-comment">// ES2015</span></span><br><span class="line"><span class="hljs-keyword">const</span> fifteen = inventors.filter(<span class="hljs-function"><span class="hljs-params">inventor</span> =&gt;</span> (inventor.year &gt;= <span class="hljs-number">1500</span> &amp;&amp; inventor.year &lt;= <span class="hljs-number">1600</span>));</span><br></pre></td></tr></table></figure></p>
+<p><strong>map</strong><br><code>Array.prototype.map()</code><br>요소를 일괄적으로 수정할 때, 전체 배열 값을 이용해서 새로운 배열을 만든다.<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> fullNames = inventors.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">inventor</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> inventor.first +<span class="hljs-string">' '</span>+inventor.last;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="hljs-comment">// ES2015</span></span><br><span class="line"><span class="hljs-keyword">const</span> fullNames = inventors.map(<span class="hljs-function"><span class="hljs-params">inventor</span> =&gt;</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;inventor.first&#125;</span> <span class="hljs-subst">$&#123;inventor.last&#125;</span>`</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong>sort</strong><br><code>Array.prototype.sort()</code><br>조건에 따라 배열을 재정렬.<br>조건에 따른 결과값이 <strong>음수면 순서가 바뀌지 않고 양수면 순서가 바뀜</strong>.<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> ordered = inventors.sort(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> a.year &gt; b.year ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="hljs-comment">// ES2015</span></span><br><span class="line"><span class="hljs-keyword">const</span> ordered = inventors.sort(<span class="hljs-function">(<span class="hljs-params">a,b</span>) =&gt;</span> (a.year &gt; b.year) ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong>reduce</strong><br><code>Array.prototype.reduce()</code><br>각 요소에 리듀서함수(reducer Func)를 실행하고, 하나의 결과값을 반환한다.<br>리듀서함수는 (누적값, 현재값, 현재인덳, 원본배열)을 인자값으로 가진다.<br>reduce(reducer, 초기값)<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> transportation = data.reduce(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, item</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(!obj[item])&#123;</span><br><span class="line">        obj[item] = <span class="hljs-number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    obj[item]++;</span><br><span class="line">    <span class="hljs-keyword">return</span> obj;</span><br><span class="line">&#125;,&#123;&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>그 외</strong><br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 배열의 요소에 담겨서 각각 변수값으로 사용 가능</span></span><br><span class="line"><span class="hljs-keyword">const</span> [aLast, aFirst] = lastOne.split(<span class="hljs-string">', '</span>);</span><br><span class="line"><span class="hljs-comment">// Array.from() 유사 배열 객체, 순회 가능 한 객체일 경우에 새 Array 생성</span></span><br><span class="line"><span class="hljs-keyword">const</span> links = <span class="hljs-built_in">Array</span>.from(category.querySelectorAll(<span class="hljs-string">'a'</span>));</span><br><span class="line"><span class="hljs-keyword">const</span> links = [...category.querySelectorAll(<span class="hljs-string">'a'</span>)]; <span class="hljs-comment">// ES2015</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="05-Flex-Panel-Gallery"><a href="#05-Flex-Panel-Gallery" class="headerlink" title="05. Flex Panel Gallery"></a>05. Flex Panel Gallery</h2><p>flexbox로 구성 된 레이아웃에 class 제어를 통해 transition 효과를 준다.</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toggleOpen</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-comment">// IE</span></span><br><span class="line">    <span class="hljs-comment">// Does not have support for classList on SVG or MathML elements.</span></span><br><span class="line">    <span class="hljs-comment">// Does not support the second parameter for the toggle method</span></span><br><span class="line">    <span class="hljs-comment">// Does not support multiple parameters for the add() &amp; remove() methods</span></span><br><span class="line">    <span class="hljs-comment">// Does not support assign to classList or the replace() method</span></span><br><span class="line">    <span class="hljs-keyword">this</span>.classList.toggle(<span class="hljs-string">'open'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toggleActive</span>(<span class="hljs-params">e</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(e.propertyName);</span><br><span class="line">    <span class="hljs-comment">// Safari transitionend event.propertyName === flex</span></span><br><span class="line">    <span class="hljs-comment">// Chrome + FF transitionend event.propertyName === flex-grow </span></span><br><span class="line">    <span class="hljs-keyword">if</span>(e.propertyName.includes(<span class="hljs-string">'flex'</span>))&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.classList.toggle(<span class="hljs-string">'open-active'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>forEach</strong><br><code>Array​.prototype​.for​Each()</code><br>각 요소에 함수 실행. 반환 값이 없다.<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">panels.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">panel</span>)</span>&#123;</span><br><span class="line">    panel.addEventListener(<span class="hljs-string">'click'</span>, toggleOpen);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="hljs-comment">// ES2015</span></span><br><span class="line">panels.forEach(<span class="hljs-function"><span class="hljs-params">panel</span> =&gt;</span> panel.addEventListener(<span class="hljs-string">'click'</span>, toggleOpen));</span><br><span class="line">panels.forEach(<span class="hljs-function"><span class="hljs-params">panel</span> =&gt;</span> panel.addEventListener(<span class="hljs-string">'transitionend'</span>, toggleActive));</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
 
     <div class="card">
     
@@ -380,17 +433,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Entradas
                     </p>
                     <p class="title has-text-weight-normal">
-                        4
+                        5
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Categorias
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -400,7 +453,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Etiquetas
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -410,7 +463,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="http://github.com/ppoffice" target="_blank">
-                Follow</a>
+                SEGUIR</a>
         </div>
         
         
@@ -497,7 +550,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Categorias
             </h3>
             <ul class="menu-list">
             <li>
@@ -506,7 +559,7 @@
                 <span class="level-item">TIL</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">5</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/TIL/FEstudy/">
@@ -522,7 +575,7 @@
                 <span class="level-item">javascript30</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li></ul></li>
             </ul>
@@ -534,7 +587,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nube de etiquetas
         </h3>
         <a href="/tags/FEstudy/" style="font-size: 20px;">FEstudy</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a>
     </div>
@@ -548,8 +601,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/05/02/Vanilla-Js-30-04-05/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 04~05">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-02T05:45:24.000Z">2019-05-02</time></div>
+                    <a href="/2019/05/02/Vanilla-Js-30-04-05/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 04~05</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -635,9 +707,20 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -659,14 +742,14 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/FEstudy/">
                         <span class="tag">FEstudy</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -680,7 +763,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -704,8 +787,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/05/02/Vanilla-Js-30-04-05/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 04~05">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-02T05:45:24.000Z">2019-05-02</time></div>
+                    <a href="/2019/05/02/Vanilla-Js-30-04-05/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 04~05</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -791,9 +893,20 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -815,14 +928,14 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/FEstudy/">
                         <span class="tag">FEstudy</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -836,7 +949,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -969,7 +1082,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Kembali ke atas" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -1015,10 +1128,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
+                POSTS: 'Entradas',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
