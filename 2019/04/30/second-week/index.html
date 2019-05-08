@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="JS Basic Grammar Type (Primitive, Reference) Value, Expression, Statement Truthy &amp;amp; Falsy  JavaScript History https://wit.nts-corp.com/2014/08/13/1925 https://helloworldjavascript.net/pages/100-ja">
+    <meta name="description" content="JS Basic Grammar Type (Primitive, Reference) Value, Expression, Statement Truthy &amp;amp; Falsy   1. JavaScript History https://wit.nts-corp.com/2014/08/13/1925 https://helloworldjavascript.net/pages/10">
 <meta name="keywords" content="javascript,FEstudy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2주차(2019.04.27)">
 <meta property="og:url" content="http://racepark.github.io/2019/04/30/second-week/index.html">
 <meta property="og:site_name" content="Race&#39;s Blog">
-<meta property="og:description" content="JS Basic Grammar Type (Primitive, Reference) Value, Expression, Statement Truthy &amp;amp; Falsy  JavaScript History https://wit.nts-corp.com/2014/08/13/1925 https://helloworldjavascript.net/pages/100-ja">
+<meta property="og:description" content="JS Basic Grammar Type (Primitive, Reference) Value, Expression, Statement Truthy &amp;amp; Falsy   1. JavaScript History https://wit.nts-corp.com/2014/08/13/1925 https://helloworldjavascript.net/pages/10">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://racepark.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-30T12:22:20.290Z">
+<meta property="og:updated_time" content="2019-05-08T17:18:43.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2주차(2019.04.27)">
-<meta name="twitter:description" content="JS Basic Grammar Type (Primitive, Reference) Value, Expression, Statement Truthy &amp;amp; Falsy  JavaScript History https://wit.nts-corp.com/2014/08/13/1925 https://helloworldjavascript.net/pages/100-ja">
+<meta name="twitter:description" content="JS Basic Grammar Type (Primitive, Reference) Value, Expression, Statement Truthy &amp;amp; Falsy   1. JavaScript History https://wit.nts-corp.com/2014/08/13/1925 https://helloworldjavascript.net/pages/10">
 <meta name="twitter:image" content="http://racepark.github.io/images/og_image.png">
 
 
@@ -174,13 +174,15 @@
 <li>Value, Expression, Statement</li>
 <li>Truthy &amp; Falsy</li>
 </ul>
-<h2 id="JavaScript-History"><a href="#JavaScript-History" class="headerlink" title="JavaScript History"></a>JavaScript History</h2><ul>
+<hr>
+<h2 id="1-JavaScript-History"><a href="#1-JavaScript-History" class="headerlink" title="1. JavaScript History"></a>1. JavaScript History</h2><ul>
 <li><a href="https://wit.nts-corp.com/2014/08/13/1925" target="_blank" rel="noopener">https://wit.nts-corp.com/2014/08/13/1925</a></li>
 <li><a href="https://helloworldjavascript.net/pages/100-javascript.html" target="_blank" rel="noopener">https://helloworldjavascript.net/pages/100-javascript.html</a></li>
 <li><a href="https://ko.wikipedia.org/wiki/javascript" target="_blank" rel="noopener">https://ko.wikipedia.org/wiki/javascript</a></li>
 </ul>
-<h2 id="Value-Expression-Statement"><a href="#Value-Expression-Statement" class="headerlink" title="Value, Expression, Statement"></a>Value, Expression, Statement</h2><h3 id="값-Value"><a href="#값-Value" class="headerlink" title="- 값(Value)"></a>- 값(Value)</h3><p><strong>만들고 변경</strong>할 수 있는 <strong>데이터</strong>, 형(Type)을 표현하는 수단<br>모든 값은 타입을 가지며 타입은 값의 종류를 포함하는 더 큰 개념으로 확장된다. </p>
-<h3 id="값의-종류"><a href="#값의-종류" class="headerlink" title="- 값의 종류"></a>- 값의 종류</h3><ul>
+<h2 id="2-Value-Expression-Statement"><a href="#2-Value-Expression-Statement" class="headerlink" title="2. Value, Expression, Statement"></a>2. Value, Expression, Statement</h2><h3 id="2-1-값-Value"><a href="#2-1-값-Value" class="headerlink" title="2-1. 값(Value)"></a>2-1. 값(Value)</h3><p><strong>만들고 변경</strong>할 수 있는 <strong>데이터</strong>, 형(Type)을 표현하는 수단<br>모든 값은 타입을 가지며 타입은 값의 종류를 포함하는 더 큰 개념으로 확장된다. </p>
+<p><strong>값의 종류</strong></p>
+<ul>
 <li>숫자 - Number</li>
 <li>문자열 - String</li>
 <li>논리값 - Boolean</li>
@@ -190,13 +192,13 @@
 <li>심볼 - Symbol</li>
 <li>객체 - Object</li>
 </ul>
-<h3 id="식-Expression"><a href="#식-Expression" class="headerlink" title="- 식(Expression)"></a>- 식(Expression)</h3><p>하나의 <strong>값으로 표현</strong>된다. </p>
+<h3 id="2-2-식-Expression"><a href="#2-2-식-Expression" class="headerlink" title="2-2. 식(Expression)"></a>2-2. 식(Expression)</h3><p>하나의 <strong>값으로 표현</strong>된다. </p>
 <ul>
 <li><a href="https://www.bsidesoft.com/?p=760" target="_blank" rel="noopener">https://www.bsidesoft.com/?p=760</a></li>
 </ul>
 <p>*리터럴 : 더 이상 나눌 수 없는 값.</p>
-<h3 id="문-Statement"><a href="#문-Statement" class="headerlink" title="- 문(Statement)"></a>- 문(Statement)</h3><p>의미상 한줄 한줄 각각의 <strong>명령, 지시문</strong>. 문은 파싱된 이후에 아무것도 남지 않게 되므로 <strong>값으로 쓸 수 없다.</strong> (Return을 할수 있는건 값, 식)<br>ex. 조건문, 반복문, 제어문, 식 문, 변수선언문 …</p>
-<h2 id="Type-Primitive-Reference"><a href="#Type-Primitive-Reference" class="headerlink" title="Type (Primitive, Reference)"></a>Type (Primitive, Reference)</h2><h3 id="기본값-Primitive"><a href="#기본값-Primitive" class="headerlink" title="- 기본값(Primitive)"></a>- 기본값(Primitive)</h3><p>참조되지 않고 복제되며 immutable한 자료형</p>
+<h3 id="2-3-문-Statement"><a href="#2-3-문-Statement" class="headerlink" title="2-3. 문(Statement)"></a>2-3. 문(Statement)</h3><p>의미상 한줄 한줄 각각의 <strong>명령, 지시문</strong>. 문은 파싱된 이후에 아무것도 남지 않게 되므로 <strong>값으로 쓸 수 없다.</strong> (Return을 할수 있는건 값, 식)<br>ex. 조건문, 반복문, 제어문, 식 문, 변수선언문 …</p>
+<h2 id="3-Type-Primitive-Reference"><a href="#3-Type-Primitive-Reference" class="headerlink" title="3. Type (Primitive, Reference)"></a>3. Type (Primitive, Reference)</h2><h3 id="3-1-기본값-Primitive"><a href="#3-1-기본값-Primitive" class="headerlink" title="3-1. 기본값(Primitive)"></a>3-1. 기본값(Primitive)</h3><p>참조되지 않고 복제되며 immutable한 자료형</p>
 <ul>
 <li>string</li>
 <li>number</li>
@@ -205,13 +207,13 @@
 <li>null</li>
 <li>NaN</li>
 </ul>
-<h3 id="참조값-Reference"><a href="#참조값-Reference" class="headerlink" title="- 참조값(Reference)"></a>- 참조값(Reference)</h3><p>복제되지 않고, 원본은 하나만 유지된 상태로, 주소만 공유되는 것(함수, 객체, 배열)<br>초기값을 설정할 때 해당 값의 메모리를 할당 받고, 값을 사용 할 때나 함수 호출 시 할당된 메모리를 읽고 쓰기만 한다.</p>
+<h3 id="3-2-참조값-Reference"><a href="#3-2-참조값-Reference" class="headerlink" title="3-2. 참조값(Reference)"></a>3-2. 참조값(Reference)</h3><p>복제되지 않고, 원본은 하나만 유지된 상태로, 주소만 공유되는 것(함수, 객체, 배열)<br>초기값을 설정할 때 해당 값의 메모리를 할당 받고, 값을 사용 할 때나 함수 호출 시 할당된 메모리를 읽고 쓰기만 한다.</p>
 <ul>
 <li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Data_structures" target="_blank" rel="noopener">https://developer.mozilla.org/ko/docs/Web/JavaScript/Data_structures</a></li>
 <li><a href="https://weicomes.tistory.com/133" target="_blank" rel="noopener">https://weicomes.tistory.com/133</a></li>
 <li><a href="https://poiemaweb.com/js-immutability" target="_blank" rel="noopener">https://poiemaweb.com/js-immutability</a></li>
 </ul>
-<h2 id="Truthy-amp-Falsy"><a href="#Truthy-amp-Falsy" class="headerlink" title="Truthy &amp; Falsy"></a>Truthy &amp; Falsy</h2><p>boolean 타입이 와야 하는 자리에 다른 타입의 값이 와도 실행되는 데 true로 되는 어떤 값들을 <code>truthy</code>, false로 취급 되는 어떤 값들을 <code>falsy</code>라고 부른다.<br><strong>false, null, undefined, 0, NaN, ‘’(빈문자열)</strong>을 제외한 모든 값들은 truthy이다.</p>
+<h2 id="4-Truthy-amp-Falsy"><a href="#4-Truthy-amp-Falsy" class="headerlink" title="4. Truthy &amp; Falsy"></a>4. Truthy &amp; Falsy</h2><p>boolean 타입이 와야 하는 자리에 다른 타입의 값이 와도 실행되는 데 true로 되는 어떤 값들을 <code>truthy</code>, false로 취급 되는 어떤 값들을 <code>falsy</code>라고 부른다.<br><strong>false, null, undefined, 0, NaN, ‘’(빈문자열)</strong>을 제외한 모든 값들은 truthy이다.</p>
 <ul>
 <li><a href="https://developer.mozilla.org/ko/docs/Glossary/Truthy" target="_blank" rel="noopener">https://developer.mozilla.org/ko/docs/Glossary/Truthy</a></li>
 </ul>
@@ -328,17 +330,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Entradas
                     </p>
                     <p class="title has-text-weight-normal">
-                        6
+                        7
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Categorias
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -348,7 +350,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Etiquetas
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -358,7 +360,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="http://github.com/ppoffice" target="_blank">
-                Follow</a>
+                SEGUIR</a>
         </div>
         
         
@@ -445,7 +447,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Categorias
             </h3>
             <ul class="menu-list">
             <li>
@@ -454,7 +456,7 @@
                 <span class="level-item">TIL</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">6</span>
+                <span class="level-item tag">7</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/TIL/FEstudy/">
@@ -462,7 +464,7 @@
                 <span class="level-item">FEstudy</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/TIL/javascript30/">
@@ -482,7 +484,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nube de etiquetas
         </h3>
         <a href="/tags/FEstudy/" style="font-size: 20px;">FEstudy</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a>
     </div>
@@ -496,8 +498,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/05/09/third-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="3주차(2019.05.04)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-08T15:15:20.000Z">2019-05-09</time></div>
+                    <a href="/2019/05/09/third-week/" class="has-link-black-ter is-size-6">3주차(2019.05.04)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -575,25 +596,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/26/Vanilla-Js-30-02-03/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 02~03">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-25T15:53:49.000Z">2019-04-26</time></div>
-                    <a href="/2019/04/26/Vanilla-Js-30-02-03/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 02~03</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -602,7 +604,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -612,7 +614,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -637,14 +639,14 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/FEstudy/">
                         <span class="tag">FEstudy</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -658,7 +660,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -682,8 +684,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/05/09/third-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="3주차(2019.05.04)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-08T15:15:20.000Z">2019-05-09</time></div>
+                    <a href="/2019/05/09/third-week/" class="has-link-black-ter is-size-6">3주차(2019.05.04)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -761,25 +782,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/26/Vanilla-Js-30-02-03/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 02~03">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-25T15:53:49.000Z">2019-04-26</time></div>
-                    <a href="/2019/04/26/Vanilla-Js-30-02-03/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 02~03</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -788,7 +790,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -798,7 +800,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -823,14 +825,14 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/FEstudy/">
                         <span class="tag">FEstudy</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -844,7 +846,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -1023,10 +1025,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
+                POSTS: 'Entradas',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',

@@ -2,7 +2,7 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: hexo - Race&#39;s Blog</title>
+<title>Etiqueta: hexo - Race&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -138,7 +138,7 @@
     <div class="card-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/tags">Tags</a></li>
+            <li><a href="/tags">Etiquetas</a></li>
             <li class="is-active"><a href="#" aria-current="page">hexo</a></li>
         </ul>
         </nav>
@@ -161,7 +161,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 325 words)
+                    2 minutes read (About 317 words)
                 </span>
                 
                 
@@ -174,18 +174,22 @@
             
         </h1>
         <div class="content">
-            <h2 id="학습공간-만들기-Hexo-이용-github-blog-만들기"><a href="#학습공간-만들기-Hexo-이용-github-blog-만들기" class="headerlink" title="학습공간 만들기 - Hexo 이용 github blog 만들기"></a>학습공간 만들기 - Hexo 이용 github blog 만들기</h2><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">https://hexo.io/docs/deployment.html</a></p>
+            <ul>
+<li>학습공간 만들기</li>
+</ul>
+<hr>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">https://hexo.io/docs/deployment.html</a></p>
 <h3 id="1-Hexo-CLI-설치-및-블로그-생성"><a href="#1-Hexo-CLI-설치-및-블로그-생성" class="headerlink" title="1. Hexo CLI 설치 및 블로그 생성"></a>1. Hexo CLI 설치 및 블로그 생성</h3><p>(<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a> 설치 필요)</p>
 <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="hljs-built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<h3 id="2-config-yum-파일-수정"><a href="#2-config-yum-파일-수정" class="headerlink" title="2. _config.yum 파일 수정"></a>2. _config.yum 파일 수정</h3><h4 id="사이트-정보"><a href="#사이트-정보" class="headerlink" title="- 사이트 정보"></a>- 사이트 정보</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Site</span></span><br><span class="line">title: Race<span class="hljs-string">'s Blog</span></span><br><span class="line"><span class="hljs-string">subtitle:</span></span><br><span class="line"><span class="hljs-string">description:</span></span><br><span class="line"><span class="hljs-string">keywords:</span></span><br><span class="line"><span class="hljs-string">author: racepark</span></span><br><span class="line"><span class="hljs-string">language:</span></span><br><span class="line"><span class="hljs-string">timezone:</span></span><br></pre></td></tr></table></figure>
-<h4 id="git-설정"><a href="#git-설정" class="headerlink" title="- git 설정"></a>- git 설정</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Deployment</span></span><br><span class="line"><span class="hljs-comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="hljs-built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/racepark/racepark.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<h3 id="3-테마설치"><a href="#3-테마설치" class="headerlink" title="3. 테마설치"></a>3. 테마설치</h3><h4 id="themes폴더에-테마-설치-해당-폴더를-그대로-내려-받거나-git-clone-사용"><a href="#themes폴더에-테마-설치-해당-폴더를-그대로-내려-받거나-git-clone-사용" class="headerlink" title="- themes폴더에 테마 설치 해당 폴더를 그대로 내려 받거나 git clone 사용"></a>- <code>themes</code>폴더에 테마 설치 해당 폴더를 그대로 내려 받거나 git clone 사용</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="hljs-built_in">clone</span> &#123;themes repository&#125; themes/&#123;themes name&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="config-yml-파일-수정"><a href="#config-yml-파일-수정" class="headerlink" title="- _config.yml 파일 수정"></a>- <code>_config.yml</code> 파일 수정</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Extensions</span></span><br><span class="line"><span class="hljs-comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="hljs-comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line">theme: icarus</span><br></pre></td></tr></table></figure>
-<h4 id="배포"><a href="#배포" class="headerlink" title="- 배포"></a>- 배포</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean </span><br><span class="line">$ hexo generate </span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<h3 id="4-포스트-작성-후-배포"><a href="#4-포스트-작성-후-배포" class="headerlink" title="4. 포스트 작성 후 배포"></a>4. 포스트 작성 후 배포</h3><h4 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="- Create a new post"></a>- Create a new post</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="hljs-string">"My New Post!"</span></span><br></pre></td></tr></table></figure>
-<h4 id="Run-server"><a href="#Run-server" class="headerlink" title="- Run server"></a>- Run server</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<h4 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="- Generate static files"></a>- Generate static files</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<h4 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="- Deploy to remote sites"></a>- Deploy to remote sites</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="2-config-yum-파일-수정"><a href="#2-config-yum-파일-수정" class="headerlink" title="2. _config.yum 파일 수정"></a>2. _config.yum 파일 수정</h3><h4 id="2-1-사이트-정보"><a href="#2-1-사이트-정보" class="headerlink" title="2-1. 사이트 정보"></a>2-1. 사이트 정보</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Site</span></span><br><span class="line">title: Race<span class="hljs-string">'s Blog</span></span><br><span class="line"><span class="hljs-string">subtitle:</span></span><br><span class="line"><span class="hljs-string">description:</span></span><br><span class="line"><span class="hljs-string">keywords:</span></span><br><span class="line"><span class="hljs-string">author: racepark</span></span><br><span class="line"><span class="hljs-string">language:</span></span><br><span class="line"><span class="hljs-string">timezone:</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-2-git-설정"><a href="#2-2-git-설정" class="headerlink" title="2-2. git 설정"></a>2-2. git 설정</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Deployment</span></span><br><span class="line"><span class="hljs-comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="hljs-built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/racepark/racepark.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<h3 id="3-테마설치"><a href="#3-테마설치" class="headerlink" title="3. 테마설치"></a>3. 테마설치</h3><h4 id="3-1-themes폴더에-테마-설치-해당-폴더를-그대로-내려-받거나-git-clone-사용"><a href="#3-1-themes폴더에-테마-설치-해당-폴더를-그대로-내려-받거나-git-clone-사용" class="headerlink" title="3-1. themes폴더에 테마 설치 해당 폴더를 그대로 내려 받거나 git clone 사용"></a>3-1. <code>themes</code>폴더에 테마 설치 해당 폴더를 그대로 내려 받거나 git clone 사용</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="hljs-built_in">clone</span> &#123;themes repository&#125; themes/&#123;themes name&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-config-yml-파일-수정"><a href="#3-2-config-yml-파일-수정" class="headerlink" title="3-2. _config.yml 파일 수정"></a>3-2. <code>_config.yml</code> 파일 수정</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Extensions</span></span><br><span class="line"><span class="hljs-comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="hljs-comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line">theme: icarus</span><br></pre></td></tr></table></figure>
+<h4 id="3-3-배포"><a href="#3-3-배포" class="headerlink" title="3-3. 배포"></a>3-3. 배포</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean </span><br><span class="line">$ hexo generate </span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="4-포스트-작성-후-배포"><a href="#4-포스트-작성-후-배포" class="headerlink" title="4. 포스트 작성 후 배포"></a>4. 포스트 작성 후 배포</h3><h4 id="4-1-Create-a-new-post"><a href="#4-1-Create-a-new-post" class="headerlink" title="4-1. Create a new post"></a>4-1. Create a new post</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="hljs-string">"My New Post!"</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-2-Run-server"><a href="#4-2-Run-server" class="headerlink" title="4-2. Run server"></a>4-2. Run server</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h4 id="4-3-Generate-static-files"><a href="#4-3-Generate-static-files" class="headerlink" title="4-3. Generate static files"></a>4-3. Generate static files</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h4 id="4-4-Deploy-to-remote-sites"><a href="#4-4-Deploy-to-remote-sites" class="headerlink" title="4-4. Deploy to remote sites"></a>4-4. Deploy to remote sites</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <hr>
 <p>이전에 <code>jekyll</code>로 블로그를 잠깐 했었는 데, 스터디를 시작하면서 <code>hexo</code>로 다시 세팅해보았다.<br>ruby로 작업 했던 것보다 처음 세팅부터가 더 간단하게 느껴지긴 했다.<br>아직 손 봐야 할 부분도 많고 제대로 알고 사용하는 것도 아니지만,<br>이번 기회로 꾸준히 글도 작성하고 해서 블로그를 활성화 시켜봐야겠다!</p>
 
@@ -239,17 +243,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Entradas
                     </p>
                     <p class="title has-text-weight-normal">
-                        6
+                        7
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Categorias
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -259,7 +263,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Etiquetas
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -269,7 +273,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="http://github.com/ppoffice" target="_blank">
-                Follow</a>
+                SEGUIR</a>
         </div>
         
         
@@ -356,7 +360,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Categorias
             </h3>
             <ul class="menu-list">
             <li>
@@ -365,7 +369,7 @@
                 <span class="level-item">TIL</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">6</span>
+                <span class="level-item tag">7</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/TIL/FEstudy/">
@@ -373,7 +377,7 @@
                 <span class="level-item">FEstudy</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/TIL/javascript30/">
@@ -393,7 +397,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nube de etiquetas
         </h3>
         <a href="/tags/FEstudy/" style="font-size: 20px;">FEstudy</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a>
     </div>
@@ -407,8 +411,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/05/09/third-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="3주차(2019.05.04)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-08T15:15:20.000Z">2019-05-09</time></div>
+                    <a href="/2019/05/09/third-week/" class="has-link-black-ter is-size-6">3주차(2019.05.04)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -486,25 +509,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/26/Vanilla-Js-30-02-03/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 02~03">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-25T15:53:49.000Z">2019-04-26</time></div>
-                    <a href="/2019/04/26/Vanilla-Js-30-02-03/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 02~03</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -513,7 +517,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -523,7 +527,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -548,14 +552,14 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/FEstudy/">
                         <span class="tag">FEstudy</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -569,7 +573,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -593,8 +597,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/05/09/third-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="3주차(2019.05.04)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-08T15:15:20.000Z">2019-05-09</time></div>
+                    <a href="/2019/05/09/third-week/" class="has-link-black-ter is-size-6">3주차(2019.05.04)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -672,25 +695,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/26/Vanilla-Js-30-02-03/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 02~03">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-25T15:53:49.000Z">2019-04-26</time></div>
-                    <a href="/2019/04/26/Vanilla-Js-30-02-03/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 02~03</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -699,7 +703,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -709,7 +713,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -734,14 +738,14 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/FEstudy/">
                         <span class="tag">FEstudy</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -755,7 +759,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -934,10 +938,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
+                POSTS: 'Entradas',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',

@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="06. Type AheadAPI를 사용하여 도시,주 검색 기능을 만든다. 이번 내용은 내가 다루지않는 것들에 대한 내용들이 여서 이해하기가 어려웠다.2번 듣고나서야 어느 정도 나온 내용들이 조금 이해가 되긴했지만,ㅠ 역시나 난해한 내용이다.  Fetch_API JSON  123const endpoint = &apos;https://gist.githubusercont">
+    <meta name="description" content="06. Type AheadAPI를 사용하여 도시,주 검색 기능을 만든다. 이번 내용은 내가 다루지않는 것들에 대한 내용들이 여서 이해하기가 어려웠다.지난번엔 시간에 쫓겨 대충 들을 때보단 포스팅하기 위해 정리하며 차분히 따라하다보니어느 정도 나온 내용들이 조금 이해가 되긴했지만,ㅠ 역시나 난해한 내용이다.  JSON Fetch_API  123const en">
 <meta name="keywords" content="javascript,FEstudy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vanilla Js 30 - 06">
 <meta property="og:url" content="http://racepark.github.io/2019/05/08/Vanilla-Js-30-06/index.html">
 <meta property="og:site_name" content="Race&#39;s Blog">
-<meta property="og:description" content="06. Type AheadAPI를 사용하여 도시,주 검색 기능을 만든다. 이번 내용은 내가 다루지않는 것들에 대한 내용들이 여서 이해하기가 어려웠다.2번 듣고나서야 어느 정도 나온 내용들이 조금 이해가 되긴했지만,ㅠ 역시나 난해한 내용이다.  Fetch_API JSON  123const endpoint = &apos;https://gist.githubusercont">
+<meta property="og:description" content="06. Type AheadAPI를 사용하여 도시,주 검색 기능을 만든다. 이번 내용은 내가 다루지않는 것들에 대한 내용들이 여서 이해하기가 어려웠다.지난번엔 시간에 쫓겨 대충 들을 때보단 포스팅하기 위해 정리하며 차분히 따라하다보니어느 정도 나온 내용들이 조금 이해가 되긴했지만,ㅠ 역시나 난해한 내용이다.  JSON Fetch_API  123const en">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://racepark.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-08T15:13:31.096Z">
+<meta property="og:updated_time" content="2019-05-08T15:21:09.594Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vanilla Js 30 - 06">
-<meta name="twitter:description" content="06. Type AheadAPI를 사용하여 도시,주 검색 기능을 만든다. 이번 내용은 내가 다루지않는 것들에 대한 내용들이 여서 이해하기가 어려웠다.2번 듣고나서야 어느 정도 나온 내용들이 조금 이해가 되긴했지만,ㅠ 역시나 난해한 내용이다.  Fetch_API JSON  123const endpoint = &apos;https://gist.githubusercont">
+<meta name="twitter:description" content="06. Type AheadAPI를 사용하여 도시,주 검색 기능을 만든다. 이번 내용은 내가 다루지않는 것들에 대한 내용들이 여서 이해하기가 어려웠다.지난번엔 시간에 쫓겨 대충 들을 때보단 포스팅하기 위해 정리하며 차분히 따라하다보니어느 정도 나온 내용들이 조금 이해가 되긴했지만,ㅠ 역시나 난해한 내용이다.  JSON Fetch_API  123const en">
 <meta name="twitter:image" content="http://racepark.github.io/images/og_image.png">
 
 
@@ -155,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 562 words)
+                    4 minutes read (About 592 words)
                 </span>
                 
                 
@@ -169,10 +169,10 @@
         </h1>
         <div class="content">
             <h2 id="06-Type-Ahead"><a href="#06-Type-Ahead" class="headerlink" title="06. Type Ahead"></a>06. Type Ahead</h2><p>API를 사용하여 도시,주 검색 기능을 만든다.</p>
-<p>이번 내용은 내가 다루지않는 것들에 대한 내용들이 여서 이해하기가 어려웠다.<br>2번 듣고나서야 어느 정도 나온 내용들이 조금 이해가 되긴했지만,ㅠ 역시나 난해한 내용이다.</p>
+<p>이번 내용은 내가 다루지않는 것들에 대한 내용들이 여서 이해하기가 어려웠다.<br>지난번엔 시간에 쫓겨 대충 들을 때보단 포스팅하기 위해 정리하며 차분히 따라하다보니<br>어느 정도 나온 내용들이 조금 이해가 되긴했지만,ㅠ 역시나 난해한 내용이다.</p>
 <ul>
-<li><a href="https://developer.mozilla.org/ko/docs/Web/API/Fetch_API" target="_blank" rel="noopener">Fetch_API</a></li>
 <li><a href="https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/JSON" target="_blank" rel="noopener">JSON</a></li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/API/Fetch_API" target="_blank" rel="noopener">Fetch_API</a></li>
 </ul>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> endpoint = <span class="hljs-string">'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json'</span>;</span><br><span class="line">fetch(endpoint)</span><br><span class="line">.then(<span class="hljs-function"><span class="hljs-params">blob</span> =&gt;</span> blob.json()) <span class="hljs-comment">// fetch가 종료된 뒤 데이터가 완전히 넘어온 뒤에 함수 호출</span></span><br></pre></td></tr></table></figure>
 <p><code>Body.json()</code> 비동기이며 PromiseJavaScript 객체로 해석 되는 객체를 반환한다.<br><code>JSON.parse()</code> 는 문자열을 JSON으로 파싱한다. 이 문자열은 유효한 JSON 형태의 문자열이어야 하며, 유효하지 않을 경우 에러가 발생한다.</p>
@@ -240,6 +240,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/05/09/third-week/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">3주차(2019.05.04)</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/2019/05/02/Vanilla-Js-30-04-05/">
@@ -288,17 +295,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Entradas
                     </p>
                     <p class="title has-text-weight-normal">
-                        6
+                        7
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Categorias
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -308,7 +315,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Etiquetas
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -318,7 +325,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="http://github.com/ppoffice" target="_blank">
-                Follow</a>
+                SEGUIR</a>
         </div>
         
         
@@ -405,7 +412,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Categorias
             </h3>
             <ul class="menu-list">
             <li>
@@ -414,7 +421,7 @@
                 <span class="level-item">TIL</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">6</span>
+                <span class="level-item tag">7</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/TIL/FEstudy/">
@@ -422,7 +429,7 @@
                 <span class="level-item">FEstudy</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/TIL/javascript30/">
@@ -442,7 +449,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nube de etiquetas
         </h3>
         <a href="/tags/FEstudy/" style="font-size: 20px;">FEstudy</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a>
     </div>
@@ -456,8 +463,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/05/09/third-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="3주차(2019.05.04)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-08T15:15:20.000Z">2019-05-09</time></div>
+                    <a href="/2019/05/09/third-week/" class="has-link-black-ter is-size-6">3주차(2019.05.04)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -535,25 +561,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/26/Vanilla-Js-30-02-03/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 02~03">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-25T15:53:49.000Z">2019-04-26</time></div>
-                    <a href="/2019/04/26/Vanilla-Js-30-02-03/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 02~03</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -562,7 +569,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -572,7 +579,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -597,14 +604,14 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/FEstudy/">
                         <span class="tag">FEstudy</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -618,7 +625,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -642,8 +649,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/05/09/third-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="3주차(2019.05.04)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-08T15:15:20.000Z">2019-05-09</time></div>
+                    <a href="/2019/05/09/third-week/" class="has-link-black-ter is-size-6">3주차(2019.05.04)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -721,25 +747,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/26/Vanilla-Js-30-02-03/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 02~03">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-25T15:53:49.000Z">2019-04-26</time></div>
-                    <a href="/2019/04/26/Vanilla-Js-30-02-03/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 02~03</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -748,7 +755,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -758,7 +765,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -783,14 +790,14 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/FEstudy/">
                         <span class="tag">FEstudy</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -804,7 +811,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -983,10 +990,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
+                POSTS: 'Entradas',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
