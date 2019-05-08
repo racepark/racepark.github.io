@@ -12,6 +12,9 @@ button,
 input,
 select,
 textarea {
+  -ms-word-break: break-all;
+  word-break: keep-all;
+  word-wrap: break-word;
   font-family: "Ubuntu", "Roboto", "Open Sans", "Microsoft YaHei", sans-serif;
 }
 @media screen and (min-width: 1280px) {

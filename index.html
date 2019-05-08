@@ -141,6 +141,64 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-08T02:45:24.000Z">2019-05-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/TIL/">TIL</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 minutes read (About 562 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/05/08/Vanilla-Js-30-06/">Vanilla Js 30 - 06</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="06-Type-Ahead"><a href="#06-Type-Ahead" class="headerlink" title="06. Type Ahead"></a>06. Type Ahead</h2><p>API를 사용하여 도시,주 검색 기능을 만든다.</p>
+<p>이번 내용은 내가 다루지않는 것들에 대한 내용들이 여서 이해하기가 어려웠다.<br>2번 듣고나서야 어느 정도 나온 내용들이 조금 이해가 되긴했지만,ㅠ 역시나 난해한 내용이다.</p>
+<ul>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/API/Fetch_API" target="_blank" rel="noopener">Fetch_API</a></li>
+<li><a href="https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/JSON" target="_blank" rel="noopener">JSON</a></li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> endpoint = <span class="hljs-string">'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json'</span>;</span><br><span class="line">fetch(endpoint)</span><br><span class="line">.then(<span class="hljs-function"><span class="hljs-params">blob</span> =&gt;</span> blob.json()) <span class="hljs-comment">// fetch가 종료된 뒤 데이터가 완전히 넘어온 뒤에 함수 호출</span></span><br></pre></td></tr></table></figure>
+<p><code>Body.json()</code> 비동기이며 PromiseJavaScript 객체로 해석 되는 객체를 반환한다.<br><code>JSON.parse()</code> 는 문자열을 JSON으로 파싱한다. 이 문자열은 유효한 JSON 형태의 문자열이어야 하며, 유효하지 않을 경우 에러가 발생한다.</p>
+<p><strong>Spread_syntax</strong><br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> cities = [];</span><br><span class="line">fetch(endpoint)</span><br><span class="line">.then(<span class="hljs-function"><span class="hljs-params">blob</span> =&gt;</span> blob.json())</span><br><span class="line"><span class="hljs-comment">// 참조없는 배열복사를 위한 slice 메서드 사용 불가능(let은 가능)</span></span><br><span class="line">.then(<span class="hljs-function"><span class="hljs-params">blob</span> =&gt;</span> <span class="hljs-built_in">Array</span>.prototype.push.apply(cities, data)); </span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// ES2015</span></span><br><span class="line">.then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> cities.push(...data));</span><br></pre></td></tr></table></figure></p>
+<p><code>let</code>은 값의 재할당이 가능하지만, <code>const</code>는 초기값 설정 후 <strong>값 재할당이 불가능</strong>하다.<br>일반적으로 배열의 엘리먼트를 함수의 인수로 사용하고자 할 때 <code>Function.prototype.apply</code> 를 사용한다. <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Spread_syntax" target="_blank" rel="noopener">spred 구문</a>을 사용하면 apply 대체가 가능하다.</p>
+<ul>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/%EC%A0%95%EA%B7%9C%EC%8B%9D" target="_blank" rel="noopener">정규표현식</a><br><code>특정한 규칙을 가진 문자열의 집합</code>을 표현하는 데 사용하는 형식 언어이다. </li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 가져온 데이터에서 input에 입력된 단어를 포함하는 도시나 주 표시</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">findMatches</span>(<span class="hljs-params">wordToMatch, cities</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> cities.filter(<span class="hljs-function"><span class="hljs-params">place</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">const</span> regex = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(wordToMatch, <span class="hljs-string">'gi'</span>); <span class="hljs-comment">// 문자열전체에서 일치하는 문자(열) 반환, 대소문자 구분없이</span></span><br><span class="line">    <span class="hljs-keyword">return</span> place.city.match(regex) || place.state.match(regex);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 세자리수 콤마 삽입</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">numberWithCommas</span>(<span class="hljs-params">x</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> x.toString().replace(<span class="hljs-regexp">/\B(?=(\d&#123;3&#125;)+(?!\d))/g</span>, <span class="hljs-string">','</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// input에 입력된 단어에 하이라이트 표시</span></span><br><span class="line"><span class="hljs-keyword">const</span> regex = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-keyword">this</span>.value, <span class="hljs-string">'gi'</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> cityName = place.city.replace(regex, <span class="hljs-string">`&lt;span class="hl"&gt;<span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.value&#125;</span>&lt;/span&gt;`</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> stateName = place.state.replace(regex, <span class="hljs-string">`&lt;span class="hl"&gt;<span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.value&#125;</span>&lt;/span&gt;`</span>);</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-05-02T05:45:24.000Z">2019-05-02</time>
                 
                 <div class="level-item">
@@ -481,17 +539,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Entradas
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        5
+                        6
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorias
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -501,7 +559,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Etiquetas
+                        Tags
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -511,7 +569,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="http://github.com/ppoffice" target="_blank">
-                SEGUIR</a>
+                Follow</a>
         </div>
         
         
@@ -598,7 +656,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categorias
+                Categories
             </h3>
             <ul class="menu-list">
             <li>
@@ -607,7 +665,7 @@
                 <span class="level-item">TIL</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">6</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/TIL/FEstudy/">
@@ -623,7 +681,7 @@
                 <span class="level-item">javascript30</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">3</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li></ul></li>
             </ul>
@@ -635,7 +693,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nube de etiquetas
+            Tag Cloud
         </h3>
         <a href="/tags/FEstudy/" style="font-size: 20px;">FEstudy</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a>
     </div>
@@ -649,8 +707,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/05/08/Vanilla-Js-30-06/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 06">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-08T02:45:24.000Z">2019-05-08</time></div>
+                    <a href="/2019/05/08/Vanilla-Js-30-06/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 06</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -728,25 +805,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/25/Vanilla-Js-30-01/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 01">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T15:24:36.000Z">2019-04-25</time></div>
-                    <a href="/2019/04/25/Vanilla-Js-30-01/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 01</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -755,7 +813,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -765,7 +823,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -790,14 +848,14 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/FEstudy/">
                         <span class="tag">FEstudy</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -811,7 +869,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -835,8 +893,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/05/08/Vanilla-Js-30-06/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 06">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-08T02:45:24.000Z">2019-05-08</time></div>
+                    <a href="/2019/05/08/Vanilla-Js-30-06/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 06</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -914,25 +991,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/25/Vanilla-Js-30-01/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 01">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T15:24:36.000Z">2019-04-25</time></div>
-                    <a href="/2019/04/25/Vanilla-Js-30-01/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 01</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -941,7 +999,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -951,7 +1009,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -976,14 +1034,14 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/FEstudy/">
                         <span class="tag">FEstudy</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -997,7 +1055,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -1130,7 +1188,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Kembali ke atas" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -1176,10 +1234,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Entradas',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categorias',
-                TAGS: 'Etiquetas',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
