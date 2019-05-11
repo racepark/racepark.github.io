@@ -2,7 +2,7 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Categoria: javascript30 - Race&#39;s Blog</title>
+<title>Category: javascript30 - Race&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -138,7 +138,7 @@
     <div class="card-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/categories">Categorias</a></li>
+            <li><a href="/categories">Categories</a></li>
             
             <li><a href="/categories/TIL/">TIL</a></li>
             
@@ -147,6 +147,125 @@
         </nav>
     </div>
 </div>
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-11T05:30:22.000Z">2019-05-11</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/TIL/">TIL</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes read (About 482 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/05/11/Vanilla-Js-30-08/">Vanilla Js 30 - 08</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="08-Fun-with-HTML5-Canvas"><a href="#08-Fun-with-HTML5-Canvas" class="headerlink" title="08 - Fun with HTML5 Canvas"></a>08 - Fun with HTML5 Canvas</h2><p>canvas에 mouse event를 활용하여 선을 그린다.</p>
+<p><strong>참조</strong></p>
+<ul>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/HTML/Canvas/Tutorial/Basic_usage" target="_blank" rel="noopener">기본 사용법</a></li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/HTML/Canvas/Tutorial/Applying_styles_and_colors" target="_blank" rel="noopener">스타일과 색 적용하기</a></li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/HTML/Canvas/Tutorial/Drawing_shapes" target="_blank" rel="noopener">도형 그리기</a></li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/HTML/Canvas/Tutorial/Compositing" target="_blank" rel="noopener">도형 합성</a></li>
+<li><a href="https://mothereffinghsl.com/" target="_blank" rel="noopener">HSL</a> : HSL은 색조(hue), 포화(saturation), 밝기(lightness)로 컬러를 표현하는 방법으로 사람이 색을 묘사하는 방법과 유사한 속성을 사용하기 때문에 비슷한 색이나 약간의 변화가 필요한 색을 조합할 때 직관적으로 색을 만들어낼 수 있다.</li>
+</ul>
+<p><strong>캔버스 생성</strong><br><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"draw"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"800"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> canvas = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'draw'</span>);</span><br><span class="line"><span class="hljs-comment">// 랜더링 컨텍스트와 (렌더링 컨텍스트의) 그리기 함수들을 사용할 수 있게 해주는 메서드 getContext(contextType)</span></span><br><span class="line"><span class="hljs-keyword">const</span> ctx = canvas.getContext(<span class="hljs-string">'2d'</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>캔버스 속성</strong><br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 윤곽선 색</span></span><br><span class="line">ctx.strokeStyle = <span class="hljs-string">'#BADA55'</span>; </span><br><span class="line"><span class="hljs-comment">// 연결되는 지점의 모양</span></span><br><span class="line">ctx.lineJoin = <span class="hljs-string">'round'</span>; </span><br><span class="line"><span class="hljs-comment">// 선의 끝 모양</span></span><br><span class="line">ctx.lineCap = <span class="hljs-string">'round'</span>; </span><br><span class="line"><span class="hljs-comment">// 선의 굵기</span></span><br><span class="line">ctx.lineWidth = <span class="hljs-number">100</span>; </span><br><span class="line"><span class="hljs-comment">//새로운 도형을 그릴 때, 도형 합성 방법을 설정</span></span><br><span class="line">ctx.globalCompositeOperation = <span class="hljs-string">'multiply'</span>;</span><br></pre></td></tr></table></figure></p>
+<p><strong>캔버스 메서드</strong><br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 새로운 경로 생성, 이후 그리기 명령들은 경로를 구성하고 만드는데 사용</span></span><br><span class="line">ctx.beginPath(); </span><br><span class="line"><span class="hljs-comment">// 펜을  x와 y 로 지정된 좌표로 옮김. </span></span><br><span class="line">ctx.moveTo(lastX, lastY); </span><br><span class="line"><span class="hljs-comment">// 현재의 드로잉 위치에서 x와 y로 지정된 위치까지 선을 그림.</span></span><br><span class="line">ctx.lineTo(e.offsetX, e.offsetY); </span><br><span class="line"><span class="hljs-comment">// 윤곽선을 그림</span></span><br><span class="line">ctx.stroke();</span><br></pre></td></tr></table></figure></p>
+<p><strong><a href="https://developer.mozilla.org/ko/docs/Web/Events#%EB%A7%88%EC%9A%B0%EC%8A%A4_%EC%9D%B4%EB%B2%A4%ED%8A%B8" target="_blank" rel="noopener">마우스 이벤트</a></strong><br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 마우스를 움직일 때</span></span><br><span class="line">canvas.addEventListener(<span class="hljs-string">'mousemove'</span>, draw);</span><br><span class="line"><span class="hljs-comment">// 마우스 버튼을 누를 때</span></span><br><span class="line">canvas.addEventListener(<span class="hljs-string">'mousedown'</span>, (e) =&gt; &#123;</span><br><span class="line">  isDrwing = <span class="hljs-literal">true</span>;</span><br><span class="line">  [lastX, lastY] = [e.offsetX, e.offsetY];</span><br><span class="line">&#125;);</span><br><span class="line"><span class="hljs-comment">// 마우스 버튼을 뗄 때</span></span><br><span class="line">canvas.addEventListener(<span class="hljs-string">'mouseup'</span>, () =&gt; isDrwing = <span class="hljs-literal">false</span>);</span><br><span class="line"><span class="hljs-comment">// 마우스가 요소를 벗어날 때</span></span><br><span class="line">canvas.addEventListener(<span class="hljs-string">'mouseout'</span>, () =&gt; isDrwing = <span class="hljs-literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-11T04:52:22.000Z">2019-05-11</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/TIL/">TIL</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes read (About 433 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/05/11/Vanilla-Js-30-07/">Vanilla Js 30 - 07</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="07-Array-Cardio-Day-2"><a href="#07-Array-Cardio-Day-2" class="headerlink" title="07 - Array Cardio Day 2"></a>07 - Array Cardio Day 2</h2><p>4강의 Array Cardio Day 1와 이어지는 내용이다.<br>Array의 기본 메서드 활용편 2.</p>
+<p><strong>some</strong><br><code>Array.prototype.some()</code><br>요소 중에 주어진 판별 함수에 맞는 게 있는지 확인.<br><code>true</code> 값일 때까지 각 요소에 <code>callback</code> 함수를 실행하고, <code>true</code>일 때 루프 정지 반환. (<code>find()</code>, <code>findIndex()</code> 동일)<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> isAdult = people.some(<span class="hljs-function"><span class="hljs-params">person</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()).getFullYear() - person.year &gt;= <span class="hljs-number">19</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>every</strong><br><code>Array.prototype.every()</code><br>요소 전체가 주어진 판별 함수에 맞는지 확인.<br><code>false</code> 값일 때까지 각 요소에 <code>callback</code> 함수를 실행하고, <code>false</code>일 때 루프 정지 반환.<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> allAdult = people.every(<span class="hljs-function"><span class="hljs-params">person</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()).getFullYear() - person.year &gt;= <span class="hljs-number">19</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>find</strong><br><code>Array.prototype.find()</code><br>주어진 판별 함수에 맞는 첫 번째 요소의 값 반환.<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> comment = comments.find(<span class="hljs-function"><span class="hljs-params">comment</span> =&gt;</span> comment.id === <span class="hljs-number">823423</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong>findIndex</strong><br><code>Array.prototype.find​Index()</code><br>주어진 판별 함수에 맞는 첫 번째 요소의 인덱스 반환.<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> index = comments.findIndex(<span class="hljs-function"><span class="hljs-params">comment</span> =&gt;</span> comment.id === <span class="hljs-number">823423</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong>splice</strong><br><code>Array​.prototype​.splice()</code><br>요소를 삭제, 교체, 추가하여 배열내용 변경.</p>
+<blockquote>
+<p>array.splice(start[, deleteCount[, item1[, item2[, …]]]])</p>
+<ul>
+<li>start : 시작인덱스</li>
+<li>deleteCount : 삭제할 요소수</li>
+<li>item1, item2, … : 추가 될 요소</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">comments.splice(index, <span class="hljs-number">1</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>slice</strong><br><code>Array​.prototype​.slice()</code><br>시배열의 얕은 복사본을 새로운 배열 객체로 반환. 원본 배열은 수정되지 않는다.<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];</span><br><span class="line"><span class="hljs-keyword">let</span> arr2 = arr;</span><br><span class="line">arr2.push(<span class="hljs-number">4</span>); </span><br><span class="line"><span class="hljs-built_in">console</span>.log(arr) <span class="hljs-comment">// [1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> arr3 = arr.slice();</span><br><span class="line"><span class="hljs-comment">// ES2015</span></span><br><span class="line"><span class="hljs-keyword">let</span> arr3 = [...arr]; <span class="hljs-comment">// Spread 문법은 배열을 복사할 때 1 레벨 깊이에서 효과적으로 동작</span></span><br><span class="line"></span><br><span class="line">arr3.push(<span class="hljs-number">5</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(arr3) <span class="hljs-comment">// [1, 2, 3, 4, 5]</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(arr) <span class="hljs-comment">// [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> comments = [</span><br><span class="line">    &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Love this!'</span>, <span class="hljs-attr">id</span>: <span class="hljs-number">523423</span> &#125;,</span><br><span class="line">    &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Super good'</span>, <span class="hljs-attr">id</span>: <span class="hljs-number">823423</span> &#125;,</span><br><span class="line">    &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'You are the best'</span>, <span class="hljs-attr">id</span>: <span class="hljs-number">2039842</span> &#125;,</span><br><span class="line">    &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Ramen is my fav food ever'</span>, <span class="hljs-attr">id</span>: <span class="hljs-number">123523</span> &#125;,</span><br><span class="line">    &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Nice Nice Nice!'</span>, <span class="hljs-attr">id</span>: <span class="hljs-number">542328</span> &#125;</span><br><span class="line">];</span><br><span class="line"><span class="hljs-comment">// 만들어진 배열이 들어감</span></span><br><span class="line"><span class="hljs-keyword">let</span> newComments = [</span><br><span class="line">    comments.slice(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)</span><br><span class="line">];</span><br><span class="line"><span class="hljs-built_in">console</span>.log(newComments); <span class="hljs-comment">// [Array(1)]</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 만들어진 배열의 요소들이 들어감</span></span><br><span class="line"><span class="hljs-keyword">let</span> newComments = [</span><br><span class="line">    ...comments.slice(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>) </span><br><span class="line">];</span><br><span class="line"><span class="hljs-built_in">console</span>.log(newComments); <span class="hljs-comment">// [&#123;…&#125;]</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
 
     <div class="card">
     
@@ -222,7 +341,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 489 words)
+                    3 minutes read (About 487 words)
                 </span>
                 
                 
@@ -235,7 +354,7 @@
             
         </h1>
         <div class="content">
-            <h2 id="04-Array-Cardio-Day-1"><a href="#04-Array-Cardio-Day-1" class="headerlink" title="04. Array Cardio Day 1"></a>04. Array Cardio Day 1</h2><p>Array 기본 내장 메서드를 활용하여 제공 된 데이터를 변경한다.   </p>
+            <h2 id="04-Array-Cardio-Day-1"><a href="#04-Array-Cardio-Day-1" class="headerlink" title="04. Array Cardio Day 1"></a>04. Array Cardio Day 1</h2><p>Array 기본 메서드를 활용하여 제공 된 데이터를 변경한다.   </p>
 <p><strong>filter</strong><br><code>Array.prototype.filter()</code><br>특정 조건에 맞는 요소들을 골라 낼 때<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> fifteen = inventors.filter(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">inventor</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(inventor.year &gt;= <span class="hljs-number">1500</span> &amp;&amp; inventor.year &lt;= <span class="hljs-number">1600</span>)&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="hljs-comment">// ES2015</span></span><br><span class="line"><span class="hljs-keyword">const</span> fifteen = inventors.filter(<span class="hljs-function"><span class="hljs-params">inventor</span> =&gt;</span> (inventor.year &gt;= <span class="hljs-number">1500</span> &amp;&amp; inventor.year &lt;= <span class="hljs-number">1600</span>));</span><br></pre></td></tr></table></figure></p>
 <p><strong>map</strong><br><code>Array.prototype.map()</code><br>요소를 일괄적으로 수정할 때, 전체 배열 값을 이용해서 새로운 배열을 만든다.<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> fullNames = inventors.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">inventor</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> inventor.first +<span class="hljs-string">' '</span>+inventor.last;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="hljs-comment">// ES2015</span></span><br><span class="line"><span class="hljs-keyword">const</span> fullNames = inventors.map(<span class="hljs-function"><span class="hljs-params">inventor</span> =&gt;</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;inventor.first&#125;</span> <span class="hljs-subst">$&#123;inventor.last&#125;</span>`</span>);</span><br></pre></td></tr></table></figure></p>
 <p><strong>sort</strong><br><code>Array.prototype.sort()</code><br>조건에 따라 배열을 재정렬.<br>조건에 따른 결과값이 <strong>음수면 순서가 바뀌지 않고 양수면 순서가 바뀜</strong>.<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> ordered = inventors.sort(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> a.year &gt; b.year ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="hljs-comment">// ES2015</span></span><br><span class="line"><span class="hljs-keyword">const</span> ordered = inventors.sort(<span class="hljs-function">(<span class="hljs-params">a,b</span>) =&gt;</span> (a.year &gt; b.year) ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>);</span><br></pre></td></tr></table></figure></p>
@@ -403,17 +522,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Entradas
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        7
+                        9
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorias
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -423,7 +542,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Etiquetas
+                        Tags
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -433,7 +552,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="http://github.com/ppoffice" target="_blank">
-                SEGUIR</a>
+                Follow</a>
         </div>
         
         
@@ -520,7 +639,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categorias
+                Categories
             </h3>
             <ul class="menu-list">
             <li>
@@ -529,7 +648,7 @@
                 <span class="level-item">TIL</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">7</span>
+                <span class="level-item tag">9</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/TIL/FEstudy/">
@@ -545,7 +664,7 @@
                 <span class="level-item">javascript30</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li></ul></li>
             </ul>
@@ -557,7 +676,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nube de etiquetas
+            Tag Cloud
         </h3>
         <a href="/tags/FEstudy/" style="font-size: 20px;">FEstudy</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a>
     </div>
@@ -571,8 +690,46 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/05/11/Vanilla-Js-30-08/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 08">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T05:30:22.000Z">2019-05-11</time></div>
+                    <a href="/2019/05/11/Vanilla-Js-30-08/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 08</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/11/Vanilla-Js-30-07/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 07">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T04:52:22.000Z">2019-05-11</time></div>
+                    <a href="/2019/05/11/Vanilla-Js-30-07/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 07</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -631,44 +788,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/30/second-week/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="2주차(2019.04.27)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-30T10:59:19.000Z">2019-04-30</time></div>
-                    <a href="/2019/04/30/second-week/" class="has-link-black-ter is-size-6">2주차(2019.04.27)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/04/29/first-week/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="1주차(2019.04.20)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-29T10:59:19.000Z">2019-04-29</time></div>
-                    <a href="/2019/04/29/first-week/" class="has-link-black-ter is-size-6">1주차(2019.04.20)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -677,7 +796,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -687,7 +806,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -712,14 +831,14 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/FEstudy/">
                         <span class="tag">FEstudy</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
@@ -733,7 +852,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
@@ -757,8 +876,46 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/05/11/Vanilla-Js-30-08/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 08">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T05:30:22.000Z">2019-05-11</time></div>
+                    <a href="/2019/05/11/Vanilla-Js-30-08/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 08</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/11/Vanilla-Js-30-07/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 07">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T04:52:22.000Z">2019-05-11</time></div>
+                    <a href="/2019/05/11/Vanilla-Js-30-07/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 07</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -817,44 +974,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/30/second-week/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="2주차(2019.04.27)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-30T10:59:19.000Z">2019-04-30</time></div>
-                    <a href="/2019/04/30/second-week/" class="has-link-black-ter is-size-6">2주차(2019.04.27)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/04/29/first-week/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="1주차(2019.04.20)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-29T10:59:19.000Z">2019-04-29</time></div>
-                    <a href="/2019/04/29/first-week/" class="has-link-black-ter is-size-6">1주차(2019.04.20)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -863,7 +982,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -873,7 +992,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -898,14 +1017,14 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/FEstudy/">
                         <span class="tag">FEstudy</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
@@ -919,7 +1038,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
@@ -1098,10 +1217,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Entradas',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categorias',
-                TAGS: 'Etiquetas',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
