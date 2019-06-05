@@ -141,6 +141,57 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-25T15:53:49.000Z">2019-04-26</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/TIL/">TIL</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes read (About 226 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/26/Vanilla-Js-30-02-03/">Vanilla Js 30 - 02~03</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="02-JS-and-CSS-Clock"><a href="#02-JS-and-CSS-Clock" class="headerlink" title="02. JS and CSS Clock"></a>02. JS and CSS Clock</h2><p>Date 객체를 이용하여 시계바늘을 돌아가게 만든다.</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clock"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clock-face"</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hand hour-hand"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hand min-hand"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hand second-hand"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> now = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();</span><br><span class="line"><span class="hljs-comment">// 초를 가져온다.</span></span><br><span class="line"><span class="hljs-keyword">const</span> seconds = now.getSeconds();</span><br><span class="line"><span class="hljs-keyword">const</span> secondsDegree = seconds / <span class="hljs-number">60</span> * <span class="hljs-number">360</span> + <span class="hljs-number">90</span>;</span><br><span class="line">secondHand.style.transform = <span class="hljs-string">`rotate(<span class="hljs-subst">$&#123;secondsDegree&#125;</span>deg)`</span>;</span><br><span class="line"><span class="hljs-comment">// 분을 가져온다.</span></span><br><span class="line"><span class="hljs-keyword">const</span> mins = now.getMinutes();</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 1초 마다 setDate함수를 반복 호출</span></span><br><span class="line">setInterval(setDate, <span class="hljs-number">1000</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="03-CSS-Variables"><a href="#03-CSS-Variables" class="headerlink" title="03. CSS Variables"></a>03. CSS Variables</h2><p><a href="https://wit.nts-corp.com/2017/06/27/4731" target="_blank" rel="noopener">CSS 커스텀 속성</a>을 활용한다.</p>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-pseudo">:root</span> &#123;</span><br><span class="line">    <span class="hljs-attribute">--base</span>: yellow;</span><br><span class="line">    <span class="hljs-attribute">--spacing</span>: <span class="hljs-number">10px</span>;</span><br><span class="line">    <span class="hljs-attribute">--blur</span>: <span class="hljs-number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-tag">img</span>&#123;</span><br><span class="line">    <span class="hljs-attribute">padding</span>: <span class="hljs-built_in">var</span>(--spacing);</span><br><span class="line">    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--base);</span><br><span class="line">    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">blur</span>(var(--blur));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// data 속성 사용(dataset은 IE11부터, 10이하는 getAttribute() 사용)</span></span><br><span class="line"><span class="hljs-keyword">const</span> suffix = <span class="hljs-keyword">this</span>.dataset.sizing || <span class="hljs-string">''</span>;</span><br><span class="line"><span class="hljs-comment">// 각 input의 value를 &lt;html&gt;의 CSS CUSTOM 속성값으로 할당</span></span><br><span class="line"><span class="hljs-built_in">document</span>.documentElement.style.setProperty(<span class="hljs-string">`--<span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.name&#125;</span>`</span>, <span class="hljs-keyword">this</span>.value + suffix);</span><br><span class="line"></span><br><span class="line">input.forEach(<span class="hljs-function"><span class="hljs-params">input</span> =&gt;</span> input.addEventListener(<span class="hljs-string">'change'</span>, handleUpdate));</span><br></pre></td></tr></table></figure>
+<p>작성자가 정의하는 속성의 집합인 <code>--var-name</code>.(사용: <code>var(var-name)</code>)<br>HTML 요소에 추가적으로 데이터를 저장할 수 있게 해주는 <code>data-*</code>.<br>커스텀 속성을 스크립트에서 유용하게 사용하기. </p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-04-24T15:24:36.000Z">2019-04-25</time>
                 
                 <div class="level-item">
@@ -197,10 +248,10 @@
 <div class="card card-transparent">
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <div class="pagination-previous">
-            <a class="is-flex-grow has-text-black-ter" href="/">Previous</a>
+            <a class="is-flex-grow has-text-black-ter" href="/">Préc</a>
         </div>
         <div class="pagination-next is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/page/3/">Next</a>
+            <a class="is-flex-grow has-text-black-ter" href="/page/3/">Suiv</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
             
@@ -247,17 +298,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Articles
                     </p>
                     <p class="title has-text-weight-normal">
-                        11
+                        12
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Catégories
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -277,7 +328,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="http://github.com/ppoffice" target="_blank">
-                Follow</a>
+                SUIVRE</a>
         </div>
         
         
@@ -326,7 +377,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Links
+            Liens
         </h3>
         <ul class="menu-list">
         
@@ -364,7 +415,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Catégories
             </h3>
             <ul class="menu-list">
             <li>
@@ -373,7 +424,7 @@
                 <span class="level-item">TIL</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">11</span>
+                <span class="level-item tag">12</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/TIL/FEstudy/">
@@ -389,7 +440,7 @@
                 <span class="level-item">javascript30</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">7</span>
+                <span class="level-item tag">8</span>
             </span>
         </a></li></ul></li>
             </ul>
@@ -401,7 +452,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nuage de tags
         </h3>
         <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a>
     </div>
@@ -415,8 +466,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Récents
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/06/05/Vanilla-Js-30-10-11/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 10~11">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-05T11:00:12.000Z">2019-06-05</time></div>
+                    <a href="/2019/06/05/Vanilla-Js-30-10-11/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 10~11</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -494,25 +564,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/05/09/third-week/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="3주차(2019.05.04)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-08T15:15:20.000Z">2019-05-09</time></div>
-                    <a href="/2019/05/09/third-week/" class="has-link-black-ter is-size-6">3주차(2019.05.04)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -531,7 +582,7 @@
                     <span class="level-item">June 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -581,7 +632,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">10</span>
+                        <span class="tag is-grey">11</span>
                     </a>
                 </div>
                 
@@ -605,8 +656,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Récents
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/06/05/Vanilla-Js-30-10-11/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 10~11">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-05T11:00:12.000Z">2019-06-05</time></div>
+                    <a href="/2019/06/05/Vanilla-Js-30-10-11/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 10~11</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -684,25 +754,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/05/09/third-week/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="3주차(2019.05.04)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-08T15:15:20.000Z">2019-05-09</time></div>
-                    <a href="/2019/05/09/third-week/" class="has-link-black-ter is-size-6">3주차(2019.05.04)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -721,7 +772,7 @@
                     <span class="level-item">June 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -771,7 +822,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">10</span>
+                        <span class="tag is-grey">11</span>
                     </a>
                 </div>
                 
@@ -950,9 +1001,9 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
+                POSTS: 'Articles',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categories',
+                CATEGORIES: 'Catégories',
                 TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
