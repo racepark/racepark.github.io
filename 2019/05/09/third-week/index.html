@@ -16,7 +16,7 @@
 <meta property="og:description" content="JavaScript Variable Memory Hoisting Function   1. JavaScript Variable Memory https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management   메모리 생존주기는 프로그래밍 언어와 관계없이 비슷하다.  필요할때 할당한다. 사용한다.">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://racepark.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-06-03T10:44:12.261Z">
+<meta property="og:updated_time" content="2019-06-09T14:50:06.327Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3주차(2019.05.04)">
 <meta name="twitter:description" content="JavaScript Variable Memory Hoisting Function   1. JavaScript Variable Memory https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management   메모리 생존주기는 프로그래밍 언어와 관계없이 비슷하다.  필요할때 할당한다. 사용한다.">
@@ -155,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 minutes read (About 928 words)
+                    7 minutes read (About 979 words)
                 </span>
                 
                 
@@ -209,6 +209,13 @@
 <li><a href="https://poiemaweb.com/js-function" target="_blank" rel="noopener">https://poiemaweb.com/js-function</a></li>
 </ul>
 <p>함수란 어떤 작업을 수행하기 위해 필요한 문들의 집합을 정의한 코드 블록이다.<br>자바스크립트의 함수는 <a href="https://ko.wikipedia.org/wiki/%EC%9D%BC%EA%B8%89_%EA%B0%9D%EC%B2%B4" target="_blank" rel="noopener">일급 객체</a>이다.</p>
+<p><strong>일급 객체</strong></p>
+<ol>
+<li>변수나 데이터 구조 안에 담을 수 있다.</li>
+<li>파라미터로 전달 할 수 있다.</li>
+<li>반환값으로 사용 할 수 있다.</li>
+<li>런타임에 생성될 수 있다.</li>
+</ol>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 함수 선언 : 호이스팅 됨 함수가 중복될수 있으므로 지양함 </span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">// 기명 함수 표현식 : 재귀목적으로 사용될 경우 많이 사용함</span></span><br><span class="line"><span class="hljs-keyword">const</span> FN = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">name</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-comment">// 익명 함수 표현식</span></span><br><span class="line"><span class="hljs-keyword">const</span> FN2 = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-comment">// IIFE : 스코프 오염 시키지 않기 위해 레거시한 환경</span></span><br><span class="line">(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 <h3 id="3-1-반환값"><a href="#3-1-반환값" class="headerlink" title="3-1. 반환값"></a>3-1. 반환값</h3><ul>
 <li><code>return</code> 문으로 값을 반환 할 수 있다. </li>
@@ -335,17 +342,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Articles
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        12
+                        14
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Catégories
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -365,7 +372,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="http://github.com/ppoffice" target="_blank">
-                SUIVRE</a>
+                Follow</a>
         </div>
         
         
@@ -414,7 +421,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Liens
+            Links
         </h3>
         <ul class="menu-list">
         
@@ -452,7 +459,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Catégories
+                Categories
             </h3>
             <ul class="menu-list">
             <li>
@@ -461,7 +468,7 @@
                 <span class="level-item">TIL</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">12</span>
+                <span class="level-item tag">14</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/TIL/FEstudy/">
@@ -469,7 +476,7 @@
                 <span class="level-item">FEstudy</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/TIL/javascript30/">
@@ -489,7 +496,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nuage de tags
+            Tag Cloud
         </h3>
         <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a>
     </div>
@@ -503,8 +510,46 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Récents
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/06/09/sixth-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="6주차(2019.05.25)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-09T11:06:45.000Z">2019-06-09</time></div>
+                    <a href="/2019/06/09/sixth-week/" class="has-link-black-ter is-size-6">6주차(2019.05.25)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/06/09/fifth-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="5주차(2019.05.18)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-08T15:35:52.000Z">2019-06-09</time></div>
+                    <a href="/2019/06/09/fifth-week/" class="has-link-black-ter is-size-6">5주차(2019.05.18)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -563,44 +608,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/05/11/Vanilla-Js-30-08/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 08">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T05:30:22.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/Vanilla-Js-30-08/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 08</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/05/11/Vanilla-Js-30-07/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 07">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T04:52:22.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/Vanilla-Js-30-07/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 07</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -619,7 +626,7 @@
                     <span class="level-item">June 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -669,7 +676,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">11</span>
+                        <span class="tag is-grey">13</span>
                     </a>
                 </div>
                 
@@ -693,8 +700,46 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Récents
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/06/09/sixth-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="6주차(2019.05.25)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-09T11:06:45.000Z">2019-06-09</time></div>
+                    <a href="/2019/06/09/sixth-week/" class="has-link-black-ter is-size-6">6주차(2019.05.25)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/06/09/fifth-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="5주차(2019.05.18)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-08T15:35:52.000Z">2019-06-09</time></div>
+                    <a href="/2019/06/09/fifth-week/" class="has-link-black-ter is-size-6">5주차(2019.05.18)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -753,44 +798,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/05/11/Vanilla-Js-30-08/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 08">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T05:30:22.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/Vanilla-Js-30-08/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 08</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/05/11/Vanilla-Js-30-07/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 07">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T04:52:22.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/Vanilla-Js-30-07/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 07</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -809,7 +816,7 @@
                     <span class="level-item">June 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -859,7 +866,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">11</span>
+                        <span class="tag is-grey">13</span>
                     </a>
                 </div>
                 
@@ -1038,9 +1045,9 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Articles',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Catégories',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },

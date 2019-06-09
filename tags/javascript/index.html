@@ -151,6 +151,220 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-09T11:06:45.000Z">2019-06-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/TIL/">TIL</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 minutes read (About 657 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/06/09/sixth-week/">6주차(2019.05.25)</a>
+            
+        </h1>
+        <div class="content">
+            <ul>
+<li>Function Advanced</li>
+<li>Closure</li>
+<li>HOF</li>
+<li>Callback</li>
+</ul>
+<hr>
+<h2 id="1-Function-Advanced"><a href="#1-Function-Advanced" class="headerlink" title="1. Function Advanced"></a>1. Function Advanced</h2><ul>
+<li><a href="https://javascript.info/advanced-functions" target="_blank" rel="noopener">advanced-functions</a></li>
+</ul>
+<h2 id="2-Closure"><a href="#2-Closure" class="headerlink" title="2. Closure"></a>2. Closure</h2><ul>
+<li>외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 <strong>내부 함수가 외부 함수의 변수에 접근</strong>할 수 있는데, 이러한 메커니즘을 <strong>클로저</strong>라 한다. </li>
+<li>클로저 자신에 대한 접근, 외부 함수의 변수에 대한 접근, 전역 변수에 대한 접근.</li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> sum = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num1</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num2</span>)</span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> num1+num2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">// const sum = num1 =&gt; num2 =&gt; num1 + num2;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> add10 = sum(<span class="hljs-number">10</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> sum1020 = add10(<span class="hljs-number">20</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(sum1020) <span class="hljs-comment">// 30</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-1-Private-variable"><a href="#2-1-Private-variable" class="headerlink" title="2-1. Private variable"></a>2-1. Private variable</h2><ul>
+<li>클로저는 객체의 메소드에서도 사용할 수 있다.</li>
+<li><strong>객체의 외부에서는 접근 할 수 없는 내부에 감춰진 속성이나 메소드</strong>를 의미</li>
+<li>프로그래밍에서 어떠한 데이터를 아무나 수정하는 것을 방지 하기 위해 사용된다. 안전한 변수 사용.</li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// counter변수에 즉시실행 함수의 리턴값으로 객체 반환</span></span><br><span class="line"><span class="hljs-comment">// 해당 객체는 메소드 increment와 getValue를 지니고 있다.</span></span><br><span class="line"><span class="hljs-keyword">const</span> counter = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">increment</span>(<span class="hljs-params">num</span>) </span>&#123;</span><br><span class="line">        count += num || <span class="hljs-number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">return</span> &#123;</span><br><span class="line">        increment: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;</span><br><span class="line">            increment(num);</span><br><span class="line">        &#125;,</span><br><span class="line">        getValue: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> count;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">counter.increment(<span class="hljs-number">1</span>); <span class="hljs-comment">//외부함수에 선언된 함수 실행</span></span><br><span class="line">counter.getValue(); <span class="hljs-comment">//1; 외부함수의 지역변수 공유</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// count라는 변수는 public한 increment메서드와 getValue메서드를 통해서만 접근가능</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-HOF-Higher-Order-Function"><a href="#3-HOF-Higher-Order-Function" class="headerlink" title="3. HOF(Higher-Order Function)"></a>3. HOF(Higher-Order Function)</h2><ul>
+<li><strong>함수형 프로그래밍</strong> : 순수 함수와 보조 함수의 조합을 통해 로직 내에 존재하는 조건문과 반복문을 제거하여 복잡성을 해결하고 변수의 사용을 억제하여 상태 변경을 피하려는 프로그래밍 패러다임</li>
+<li>하나 이상의 <strong>함수를 인자</strong>로 받는다.</li>
+<li><strong>함수를 결과로 반환</strong>한다.</li>
+<li><strong>함수를 다루는 함수</strong></li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> counter = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">func, num</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-comment">// 클로저</span></span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>)</span>&#123;</span><br><span class="line">        count = func(count, num);</span><br><span class="line">        <span class="hljs-keyword">return</span> count;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> increment = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">count, num</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> count += num || <span class="hljs-number">1</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 고차함수. 함수를 인수로 전달받는다. 그리고 클로저를 반환한다.</span></span><br><span class="line"><span class="hljs-keyword">const</span> increaser = counter(increment);</span><br><span class="line">increaser(); <span class="hljs-comment">// 1</span></span><br><span class="line">increaser(<span class="hljs-number">2</span>); <span class="hljs-comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p><strong>참조</strong></p>
+<ul>
+<li><a href="https://poiemaweb.com/js-array-higher-order-function" target="_blank" rel="noopener">https://poiemaweb.com/js-array-higher-order-function</a></li>
+<li><a href="https://dev-momo.tistory.com/entry/HigherOrder-Function-%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80" target="_blank" rel="noopener">https://dev-momo.tistory.com/entry/HigherOrder-Function-%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80</a></li>
+</ul>
+<h2 id="4-Callback"><a href="#4-Callback" class="headerlink" title="4. Callback"></a>4. Callback</h2><ul>
+<li>나중에 호출되는 함수</li>
+<li>응답을 받아야 실행되므로 순서대로 실행하기 위해 사용된다.</li>
+<li>어떤 <strong>이벤트가 발생</strong>했거나 <strong>특정 시점에 도달</strong>했을 때 시스템에서 <strong>호출하는 함수</strong></li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">document</span>.body.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> fruit = [<span class="hljs-string">'apple'</span>, <span class="hljs-string">'banana'</span>, <span class="hljs-string">'orange'</span>, <span class="hljs-string">'strawberry'</span>];</span><br><span class="line">fruit.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item, index</span>)</span>&#123; </span><br><span class="line">    <span class="hljs-built_in">console</span>.log(index + <span class="hljs-number">1</span> + <span class="hljs-string">". "</span> + item);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>콜백함수는 클로저다.</li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">callback</span>(<span class="hljs-params">cb</span>)</span>&#123;</span><br><span class="line">    cb();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">x, y</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">const</span> sum = x + y;</span><br><span class="line">    callback(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">        <span class="hljs-built_in">console</span>.log(sum);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add(<span class="hljs-number">3</span>, <span class="hljs-number">5</span>);</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-08T15:35:52.000Z">2019-06-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/TIL/">TIL</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 minutes read (About 1143 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/06/09/fifth-week/">5주차(2019.05.18)</a>
+            
+        </h1>
+        <div class="content">
+            <ul>
+<li>This</li>
+<li>OOP</li>
+<li>Class</li>
+<li>Call, Apply, Bind</li>
+</ul>
+<hr>
+<h2 id="1-This"><a href="#1-This" class="headerlink" title="1. This"></a>1. This</h2><ul>
+<li><strong>컨텍스트(실행 환경)</strong> 생성 시 정의된다.</li>
+<li>스크립트가 로드 돼서 코드가 실행되면 모든 것을 포함하는 전역 컨텍스트가 생긴다. 전역 컨텍스트 외에도 함수 호출 시마다 함수 컨텍스트가 생긴다.</li>
+<li><code>This</code>는 해당 함수 호출 방식에 따라 바인딩 되는 객체가 달라진다.</li>
+</ul>
+<blockquote>
+<ol>
+<li>함수 호출</li>
+<li>메서드 호출</li>
+<li>생성자함수 호출</li>
+<li>apply/call/bind 호출</li>
+<li>이벤트</li>
+</ol>
+</blockquote>
+<h3 id="1-1-함수-호출"><a href="#1-1-함수-호출" class="headerlink" title="1-1. 함수 호출"></a>1-1. 함수 호출</h3><ul>
+<li>전역컨텍스트에서나 함수기본 호출에서의 <code>this</code>에 바인딩되는것은 <code>window</code> 전역객체이다.</li>
+<li>일반함수, 메서드, 콜백함수 어디서 선언되었든 해당 내부 <strong>함수의 this는 모두 전역객체</strong>이다.</li>
+<li><strong>strict mode</strong>를 사용해서 함수를 정의하는 경우에는 다음과 같이 this는 <code>undefined</code> 값이 된다.</li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> func = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">this</span>; <span class="hljs-comment">// window</span></span><br><span class="line">func(); <span class="hljs-comment">// window</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> obj = &#123;</span><br><span class="line">    method: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">        func();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.method(); <span class="hljs-comment">// window</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-메서드-호출"><a href="#1-2-메서드-호출" class="headerlink" title="1-2. 메서드 호출"></a>1-2. 메서드 호출</h3><p>해당 <strong>메서드를 호출한 객체</strong>가 바인딩된다. </p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> func = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> obj = &#123;</span><br><span class="line">    method: func</span><br><span class="line">&#125;</span><br><span class="line">obj.method(); <span class="hljs-comment">// obj</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-생성자함수-호출"><a href="#1-3-생성자함수-호출" class="headerlink" title="1-3. 생성자함수 호출"></a>1-3. 생성자함수 호출</h3><p>생성자함수를 선언하면 빈 객체를 생성하고 함수 내 this는 이 빈 객체를 가리킨다.<br>생성자를 통해 <strong>생성된 인스턴스 자신</strong>이 바인딩된다.</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> Func = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">new</span> Func(); <span class="hljs-comment">// func &#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">first</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.firstName = first;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">const</span> RACE = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'race'</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(RACE.firstName); <span class="hljs-comment">// 'race';</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-4-apply-call-bind-호출"><a href="#1-4-apply-call-bind-호출" class="headerlink" title="1-4. apply/call/bind 호출"></a>1-4. apply/call/bind 호출</h3><p><strong>첫번째 매개변수</strong>로 넘긴 값이 this에 바인딩된다.</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> func = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func.apply(obj); <span class="hljs-comment">//obj</span></span><br><span class="line">func.call(obj); <span class="hljs-comment">//obj</span></span><br><span class="line"><span class="hljs-keyword">const</span> funcBind = func.bind(obj);</span><br><span class="line">funcBind(); <span class="hljs-comment">//obj</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-5-이벤트"><a href="#1-5-이벤트" class="headerlink" title="1-5. 이벤트"></a>1-5. 이벤트</h3><p>이벤트의 콜백함수의 this에 <strong>이벤트를 건 객체</strong>가 바인딩된다. </p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> func = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">document</span>.body.addEventListener(<span class="hljs-string">'click'</span>,func); <span class="hljs-comment">// &lt;body&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-OOP"><a href="#2-OOP" class="headerlink" title="2. OOP"></a>2. OOP</h2><ul>
+<li>프로그램 내에서 표현하고자 하는 일들을 <strong>객체로 모델링</strong>하는 것을 말한다.</li>
+<li><em>상태</em>나 <em>행동</em>을 프로그래머의 의도에 맞게 <strong>추상화</strong>하여 데이터를 만드는 프로그래밍 패러다임. </li>
+<li>객체 인스턴스는 class를 통해 만든다.</li>
+<li>객체지향 프로그래밍은 보다 <strong>유연하고 유지보수성이 높은</strong> 프로그래밍을 하기 위해 필요하다.</li>
+</ul>
+<p><strong>생성자 함수</strong></p>
+<ul>
+<li>클래스의 자바스크립트 버전, 단순히 프로퍼티와 메소드를 정의</li>
+<li><code>new</code> 키워드와 호출하면서 새로운 객체 인스턴스 생성</li>
+</ul>
+<p><strong>참고</strong></p>
+<ul>
+<li><a href="https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/Object-oriented_JS" target="_blank" rel="noopener">https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/Object-oriented_JS</a></li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript" target="_blank" rel="noopener">https://developer.mozilla.org/ko/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript</a></li>
+</ul>
+<h2 id="3-Class"><a href="#3-Class" class="headerlink" title="3. Class"></a>3. Class</h2><ul>
+<li>ES2015에 추가된 개념으로 새로운 객체지향 상송 모델을 제공하는 것이 아니라 객체를 상속하고 다루는 데 있어 훨씬 더 단순하고 명확한 문법을 제공</li>
+</ul>
+<h3 id="3-1-Class-정의"><a href="#3-1-Class-정의" class="headerlink" title="3-1. Class 정의"></a>3-1. Class 정의</h3><ul>
+<li>Class는 함수이다. class문법도 clas표현식, class 선언 방법을 제공한다. </li>
+<li>class선언은 호이스팅이 일어나지 않는다.</li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">first</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.firstName = first;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// class 선언</span></span><br><span class="line">Class Person &#123;</span><br><span class="line">    construcotr(first)&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.firstName = first;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// class 표현식</span></span><br><span class="line"><span class="hljs-keyword">const</span> Person = Class &#123;</span><br><span class="line">    construcotr(first)&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.firstName = first;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-Class-body-amp-Class-method"><a href="#3-2-Class-body-amp-Class-method" class="headerlink" title="3-2. Class body &amp; Class method"></a>3-2. Class body &amp; Class method</h3><ul>
+<li>Class body는 중괄호로 {}로 묶여 있는 안쪽 부분이다. <strong>strict mode</strong>로 실행된다.</li>
+<li><code>constructor</code>는 생성된 인스턴스를 초기화 하기 위한 메소드. 클래스안에 한 개만 존재 가능</li>
+<li>Class method는 메소드 정의를 위한 더 짧은 구문(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions" target="_blank" rel="noopener">method definitions</a>)이 도입되었고, 그 방식대로 body안에 메소드명 그대로 정의한다. </li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> Person = Class &#123;</span><br><span class="line">    construcotr(first, last)&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.firstName = first;</span><br><span class="line">        <span class="hljs-keyword">this</span>.lastName = last;</span><br><span class="line">    &#125;</span><br><span class="line">    bio() &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello! My Name is <span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.firstName&#125;</span> <span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.lastName&#125;</span>`</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>참고</strong></p>
+<ul>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="noopener">https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes</a></li>
+</ul>
+<h2 id="4-Call-Apply-Bind"><a href="#4-Call-Apply-Bind" class="headerlink" title="4. Call, Apply, Bind"></a>4. Call, Apply, Bind</h2><h3 id="4-1-Call"><a href="#4-1-Call" class="headerlink" title="4-1. Call"></a>4-1. Call</h3><ul>
+<li>다른 객체의 메소드를 빌려와 호출하는 방식. 주어진 <code>this</code>값과 <code>arguments</code>로 함수를 호출한다.</li>
+<li>메소드가 non-strict mode 코드의 함수일 경우, null 과 undefined 가 전역 객체로 대체되며, 기본 값은 제한된다.</li>
+<li><code>arguments</code>는 인수 <strong>리스트</strong>로 받는다.</li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> pokemonInfo = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">snack, hobby</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.getPokeName()&#125;</span> loves <span class="hljs-subst">$&#123;snack&#125;</span> and <span class="hljs-subst">$&#123;hobby&#125;</span>`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">pokemonInfo.call(pikaChu, <span class="hljs-string">'딸기'</span>, <span class="hljs-string">'잠'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="4-1-Apply"><a href="#4-1-Apply" class="headerlink" title="4-1. Apply"></a>4-1. Apply</h3><ul>
+<li>call 메소드와 동일하나, <code>arguments</code>는 인수들의 <strong>단일 배열</strong>로 받는다.</li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> pokemonInfo = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">snack, hobby</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.getPokeName()&#125;</span> loves <span class="hljs-subst">$&#123;snack&#125;</span> and <span class="hljs-subst">$&#123;hobby&#125;</span>`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">pokemonInfo.apply(pikaChu, [<span class="hljs-string">'딸기'</span>, <span class="hljs-string">'잠'</span>]);</span><br></pre></td></tr></table></figure>
+<h3 id="4-3-Bind"><a href="#4-3-Bind" class="headerlink" title="4-3. Bind"></a>4-3. Bind</h3><ul>
+<li>다른 객체의 메소드를 빌려와 주어진 <code>this</code>값과 <code>arguments</code>로 새로운 함수를 반환한다.</li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> pokemonInfo = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">snack, hobby</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.getPokeName()&#125;</span> loves <span class="hljs-subst">$&#123;snack&#125;</span> and <span class="hljs-subst">$&#123;hobby&#125;</span>`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> bioPikaChu = pokemonInfo.bind(pikaChu, <span class="hljs-string">'딸기'</span>, <span class="hljs-string">'잠'</span>);</span><br><span class="line">bioPikaChu();</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-06-05T11:00:12.000Z">2019-06-05</time>
                 
                 <div class="level-item">
@@ -227,7 +441,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 552 words)
+                    4 minutes read (About 553 words)
                 </span>
                 
                 
@@ -250,7 +464,7 @@
 <li>모든 사물 하나하나</li>
 <li>키와 값의 쌍</li>
 <li>프로퍼티의 순서 없는 컬렉션</li>
-<li>사물의 상태나 행동에 대해 정의한 그룹</li>
+<li>사물의 상태나 행동에 대해 정의한 데이터</li>
 </ul>
 <p><strong>속성(Property)</strong></p>
 <ul>
@@ -481,7 +695,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 minutes read (About 928 words)
+                    7 minutes read (About 979 words)
                 </span>
                 
                 
@@ -535,6 +749,13 @@
 <li><a href="https://poiemaweb.com/js-function" target="_blank" rel="noopener">https://poiemaweb.com/js-function</a></li>
 </ul>
 <p>함수란 어떤 작업을 수행하기 위해 필요한 문들의 집합을 정의한 코드 블록이다.<br>자바스크립트의 함수는 <a href="https://ko.wikipedia.org/wiki/%EC%9D%BC%EA%B8%89_%EA%B0%9D%EC%B2%B4" target="_blank" rel="noopener">일급 객체</a>이다.</p>
+<p><strong>일급 객체</strong></p>
+<ol>
+<li>변수나 데이터 구조 안에 담을 수 있다.</li>
+<li>파라미터로 전달 할 수 있다.</li>
+<li>반환값으로 사용 할 수 있다.</li>
+<li>런타임에 생성될 수 있다.</li>
+</ol>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 함수 선언 : 호이스팅 됨 함수가 중복될수 있으므로 지양함 </span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">// 기명 함수 표현식 : 재귀목적으로 사용될 경우 많이 사용함</span></span><br><span class="line"><span class="hljs-keyword">const</span> FN = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">name</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-comment">// 익명 함수 표현식</span></span><br><span class="line"><span class="hljs-keyword">const</span> FN2 = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-comment">// IIFE : 스코프 오염 시키지 않기 위해 레거시한 환경</span></span><br><span class="line">(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 <h3 id="3-1-반환값"><a href="#3-1-반환값" class="headerlink" title="3-1. 반환값"></a>3-1. 반환값</h3><ul>
 <li><code>return</code> 문으로 값을 반환 할 수 있다. </li>
@@ -674,159 +895,15 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-30T10:59:19.000Z">2019-04-30</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/TIL/">TIL</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 minutes read (About 438 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/30/second-week/">2주차(2019.04.27)</a>
-            
-        </h1>
-        <div class="content">
-            <ul>
-<li>JS Basic Grammar</li>
-<li>Type (Primitive, Reference)</li>
-<li>Value, Expression, Statement</li>
-<li>Truthy &amp; Falsy</li>
-</ul>
-<hr>
-<h2 id="1-JavaScript-History"><a href="#1-JavaScript-History" class="headerlink" title="1. JavaScript History"></a>1. JavaScript History</h2><ul>
-<li><a href="https://wit.nts-corp.com/2014/08/13/1925" target="_blank" rel="noopener">https://wit.nts-corp.com/2014/08/13/1925</a></li>
-<li><a href="https://helloworldjavascript.net/pages/100-javascript.html" target="_blank" rel="noopener">https://helloworldjavascript.net/pages/100-javascript.html</a></li>
-<li><a href="https://ko.wikipedia.org/wiki/javascript" target="_blank" rel="noopener">https://ko.wikipedia.org/wiki/javascript</a></li>
-</ul>
-<h2 id="2-Value-Expression-Statement"><a href="#2-Value-Expression-Statement" class="headerlink" title="2. Value, Expression, Statement"></a>2. Value, Expression, Statement</h2><h3 id="2-1-값-Value"><a href="#2-1-값-Value" class="headerlink" title="2-1. 값(Value)"></a>2-1. 값(Value)</h3><p><strong>만들고 변경</strong>할 수 있는 <strong>데이터</strong>, 형(Type)을 표현하는 수단<br>모든 값은 타입을 가지며 타입은 값의 종류를 포함하는 더 큰 개념으로 확장된다. </p>
-<p><strong>값의 종류</strong></p>
-<ul>
-<li>숫자 - Number</li>
-<li>문자열 - String</li>
-<li>논리값 - Boolean</li>
-<li>값이 정의되지 않은 - undefined</li>
-<li>값이 없는 - Null</li>
-<li>숫자가 아닌 - NaN</li>
-<li>심볼 - Symbol</li>
-<li>객체 - Object</li>
-</ul>
-<h3 id="2-2-식-Expression"><a href="#2-2-식-Expression" class="headerlink" title="2-2. 식(Expression)"></a>2-2. 식(Expression)</h3><p>하나의 <strong>값으로 표현</strong>된다. </p>
-<ul>
-<li><a href="https://www.bsidesoft.com/?p=760" target="_blank" rel="noopener">https://www.bsidesoft.com/?p=760</a></li>
-</ul>
-<p>*리터럴 : 더 이상 나눌 수 없는 값.</p>
-<h3 id="2-3-문-Statement"><a href="#2-3-문-Statement" class="headerlink" title="2-3. 문(Statement)"></a>2-3. 문(Statement)</h3><p>의미상 한줄 한줄 각각의 <strong>명령, 지시문</strong>. 문은 파싱된 이후에 아무것도 남지 않게 되므로 <strong>값으로 쓸 수 없다.</strong> (Return을 할수 있는건 값, 식)<br>ex. 조건문, 반복문, 제어문, 식 문, 변수선언문 …</p>
-<h2 id="3-Type-Primitive-Reference"><a href="#3-Type-Primitive-Reference" class="headerlink" title="3. Type (Primitive, Reference)"></a>3. Type (Primitive, Reference)</h2><h3 id="3-1-기본값-Primitive"><a href="#3-1-기본값-Primitive" class="headerlink" title="3-1. 기본값(Primitive)"></a>3-1. 기본값(Primitive)</h3><p>참조되지 않고 복제되며 immutable한 자료형</p>
-<ul>
-<li>string</li>
-<li>number</li>
-<li>boolean</li>
-<li>undefined</li>
-<li>null</li>
-<li>NaN</li>
-</ul>
-<h3 id="3-2-참조값-Reference"><a href="#3-2-참조값-Reference" class="headerlink" title="3-2. 참조값(Reference)"></a>3-2. 참조값(Reference)</h3><p>복제되지 않고, 원본은 하나만 유지된 상태로, 주소만 공유되는 것(함수, 객체, 배열)<br>초기값을 설정할 때 해당 값의 메모리를 할당 받고, 값을 사용 할 때나 함수 호출 시 할당된 메모리를 읽고 쓰기만 한다.</p>
-<ul>
-<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Data_structures" target="_blank" rel="noopener">https://developer.mozilla.org/ko/docs/Web/JavaScript/Data_structures</a></li>
-<li><a href="https://weicomes.tistory.com/133" target="_blank" rel="noopener">https://weicomes.tistory.com/133</a></li>
-<li><a href="https://poiemaweb.com/js-immutability" target="_blank" rel="noopener">https://poiemaweb.com/js-immutability</a></li>
-</ul>
-<h2 id="4-Truthy-amp-Falsy"><a href="#4-Truthy-amp-Falsy" class="headerlink" title="4. Truthy &amp; Falsy"></a>4. Truthy &amp; Falsy</h2><p>boolean 타입이 와야 하는 자리에 다른 타입의 값이 와도 실행되는 데 true로 되는 어떤 값들을 <code>truthy</code>, false로 취급 되는 어떤 값들을 <code>falsy</code>라고 부른다.<br><strong>false, null, undefined, 0, NaN, ‘’(빈문자열)</strong>을 제외한 모든 값들은 truthy이다.</p>
-<ul>
-<li><a href="https://developer.mozilla.org/ko/docs/Glossary/Truthy" target="_blank" rel="noopener">https://developer.mozilla.org/ko/docs/Glossary/Truthy</a></li>
-</ul>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-25T15:53:49.000Z">2019-04-26</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/TIL/">TIL</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 minutes read (About 226 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/26/Vanilla-Js-30-02-03/">Vanilla Js 30 - 02~03</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="02-JS-and-CSS-Clock"><a href="#02-JS-and-CSS-Clock" class="headerlink" title="02. JS and CSS Clock"></a>02. JS and CSS Clock</h2><p>Date 객체를 이용하여 시계바늘을 돌아가게 만든다.</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clock"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clock-face"</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hand hour-hand"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hand min-hand"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hand second-hand"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> now = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();</span><br><span class="line"><span class="hljs-comment">// 초를 가져온다.</span></span><br><span class="line"><span class="hljs-keyword">const</span> seconds = now.getSeconds();</span><br><span class="line"><span class="hljs-keyword">const</span> secondsDegree = seconds / <span class="hljs-number">60</span> * <span class="hljs-number">360</span> + <span class="hljs-number">90</span>;</span><br><span class="line">secondHand.style.transform = <span class="hljs-string">`rotate(<span class="hljs-subst">$&#123;secondsDegree&#125;</span>deg)`</span>;</span><br><span class="line"><span class="hljs-comment">// 분을 가져온다.</span></span><br><span class="line"><span class="hljs-keyword">const</span> mins = now.getMinutes();</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 1초 마다 setDate함수를 반복 호출</span></span><br><span class="line">setInterval(setDate, <span class="hljs-number">1000</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="03-CSS-Variables"><a href="#03-CSS-Variables" class="headerlink" title="03. CSS Variables"></a>03. CSS Variables</h2><p><a href="https://wit.nts-corp.com/2017/06/27/4731" target="_blank" rel="noopener">CSS 커스텀 속성</a>을 활용한다.</p>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-pseudo">:root</span> &#123;</span><br><span class="line">    <span class="hljs-attribute">--base</span>: yellow;</span><br><span class="line">    <span class="hljs-attribute">--spacing</span>: <span class="hljs-number">10px</span>;</span><br><span class="line">    <span class="hljs-attribute">--blur</span>: <span class="hljs-number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-tag">img</span>&#123;</span><br><span class="line">    <span class="hljs-attribute">padding</span>: <span class="hljs-built_in">var</span>(--spacing);</span><br><span class="line">    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--base);</span><br><span class="line">    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">blur</span>(var(--blur));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// data 속성 사용(dataset은 IE11부터, 10이하는 getAttribute() 사용)</span></span><br><span class="line"><span class="hljs-keyword">const</span> suffix = <span class="hljs-keyword">this</span>.dataset.sizing || <span class="hljs-string">''</span>;</span><br><span class="line"><span class="hljs-comment">// 각 input의 value를 &lt;html&gt;의 CSS CUSTOM 속성값으로 할당</span></span><br><span class="line"><span class="hljs-built_in">document</span>.documentElement.style.setProperty(<span class="hljs-string">`--<span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.name&#125;</span>`</span>, <span class="hljs-keyword">this</span>.value + suffix);</span><br><span class="line"></span><br><span class="line">input.forEach(<span class="hljs-function"><span class="hljs-params">input</span> =&gt;</span> input.addEventListener(<span class="hljs-string">'change'</span>, handleUpdate));</span><br></pre></td></tr></table></figure>
-<p>작성자가 정의하는 속성의 집합인 <code>--var-name</code>.(사용: <code>var(var-name)</code>)<br>HTML 요소에 추가적으로 데이터를 저장할 수 있게 해주는 <code>data-*</code>.<br>커스텀 속성을 스크립트에서 유용하게 사용하기. </p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <div class="pagination-previous is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/tags/javascript/page/0/">Préc</a>
+            <a class="is-flex-grow has-text-black-ter" href="/tags/javascript/page/0/">Previous</a>
         </div>
         <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/tags/javascript/page/2/">Suiv</a>
+            <a class="is-flex-grow has-text-black-ter" href="/tags/javascript/page/2/">Next</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
             
@@ -873,17 +950,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Articles
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        12
+                        14
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Catégories
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -903,7 +980,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="http://github.com/ppoffice" target="_blank">
-                SUIVRE</a>
+                Follow</a>
         </div>
         
         
@@ -952,7 +1029,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Liens
+            Links
         </h3>
         <ul class="menu-list">
         
@@ -990,7 +1067,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Catégories
+                Categories
             </h3>
             <ul class="menu-list">
             <li>
@@ -999,7 +1076,7 @@
                 <span class="level-item">TIL</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">12</span>
+                <span class="level-item tag">14</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/TIL/FEstudy/">
@@ -1007,7 +1084,7 @@
                 <span class="level-item">FEstudy</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/TIL/javascript30/">
@@ -1027,7 +1104,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nuage de tags
+            Tag Cloud
         </h3>
         <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a>
     </div>
@@ -1041,8 +1118,46 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Récents
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/06/09/sixth-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="6주차(2019.05.25)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-09T11:06:45.000Z">2019-06-09</time></div>
+                    <a href="/2019/06/09/sixth-week/" class="has-link-black-ter is-size-6">6주차(2019.05.25)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/06/09/fifth-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="5주차(2019.05.18)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-08T15:35:52.000Z">2019-06-09</time></div>
+                    <a href="/2019/06/09/fifth-week/" class="has-link-black-ter is-size-6">5주차(2019.05.18)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1101,44 +1216,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/05/11/Vanilla-Js-30-08/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 08">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T05:30:22.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/Vanilla-Js-30-08/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 08</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/05/11/Vanilla-Js-30-07/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 07">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T04:52:22.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/Vanilla-Js-30-07/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 07</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1157,7 +1234,7 @@
                     <span class="level-item">June 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -1207,7 +1284,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">11</span>
+                        <span class="tag is-grey">13</span>
                     </a>
                 </div>
                 
@@ -1231,8 +1308,46 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Récents
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/06/09/sixth-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="6주차(2019.05.25)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-09T11:06:45.000Z">2019-06-09</time></div>
+                    <a href="/2019/06/09/sixth-week/" class="has-link-black-ter is-size-6">6주차(2019.05.25)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/06/09/fifth-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="5주차(2019.05.18)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-08T15:35:52.000Z">2019-06-09</time></div>
+                    <a href="/2019/06/09/fifth-week/" class="has-link-black-ter is-size-6">5주차(2019.05.18)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1291,44 +1406,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/05/11/Vanilla-Js-30-08/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 08">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T05:30:22.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/Vanilla-Js-30-08/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 08</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/05/11/Vanilla-Js-30-07/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 07">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T04:52:22.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/Vanilla-Js-30-07/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 07</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1347,7 +1424,7 @@
                     <span class="level-item">June 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -1397,7 +1474,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">11</span>
+                        <span class="tag is-grey">13</span>
                     </a>
                 </div>
                 
@@ -1576,9 +1653,9 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Articles',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Catégories',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },

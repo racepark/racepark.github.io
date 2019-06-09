@@ -2,7 +2,7 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Catégorie: TIL - Race&#39;s Blog</title>
+<title>Category: TIL - Race&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -138,13 +138,168 @@
     <div class="card-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/categories">Catégories</a></li>
+            <li><a href="/categories">Categories</a></li>
             
             <li class="is-active"><a href="#" aria-current="page">TIL</a></li>
         </ul>
         </nav>
     </div>
 </div>
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-30T10:59:19.000Z">2019-04-30</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/TIL/">TIL</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes read (About 438 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/30/second-week/">2주차(2019.04.27)</a>
+            
+        </h1>
+        <div class="content">
+            <ul>
+<li>JS Basic Grammar</li>
+<li>Type (Primitive, Reference)</li>
+<li>Value, Expression, Statement</li>
+<li>Truthy &amp; Falsy</li>
+</ul>
+<hr>
+<h2 id="1-JavaScript-History"><a href="#1-JavaScript-History" class="headerlink" title="1. JavaScript History"></a>1. JavaScript History</h2><ul>
+<li><a href="https://wit.nts-corp.com/2014/08/13/1925" target="_blank" rel="noopener">https://wit.nts-corp.com/2014/08/13/1925</a></li>
+<li><a href="https://helloworldjavascript.net/pages/100-javascript.html" target="_blank" rel="noopener">https://helloworldjavascript.net/pages/100-javascript.html</a></li>
+<li><a href="https://ko.wikipedia.org/wiki/javascript" target="_blank" rel="noopener">https://ko.wikipedia.org/wiki/javascript</a></li>
+</ul>
+<h2 id="2-Value-Expression-Statement"><a href="#2-Value-Expression-Statement" class="headerlink" title="2. Value, Expression, Statement"></a>2. Value, Expression, Statement</h2><h3 id="2-1-값-Value"><a href="#2-1-값-Value" class="headerlink" title="2-1. 값(Value)"></a>2-1. 값(Value)</h3><p><strong>만들고 변경</strong>할 수 있는 <strong>데이터</strong>, 형(Type)을 표현하는 수단<br>모든 값은 타입을 가지며 타입은 값의 종류를 포함하는 더 큰 개념으로 확장된다. </p>
+<p><strong>값의 종류</strong></p>
+<ul>
+<li>숫자 - Number</li>
+<li>문자열 - String</li>
+<li>논리값 - Boolean</li>
+<li>값이 정의되지 않은 - undefined</li>
+<li>값이 없는 - Null</li>
+<li>숫자가 아닌 - NaN</li>
+<li>심볼 - Symbol</li>
+<li>객체 - Object</li>
+</ul>
+<h3 id="2-2-식-Expression"><a href="#2-2-식-Expression" class="headerlink" title="2-2. 식(Expression)"></a>2-2. 식(Expression)</h3><p>하나의 <strong>값으로 표현</strong>된다. </p>
+<ul>
+<li><a href="https://www.bsidesoft.com/?p=760" target="_blank" rel="noopener">https://www.bsidesoft.com/?p=760</a></li>
+</ul>
+<p>*리터럴 : 더 이상 나눌 수 없는 값.</p>
+<h3 id="2-3-문-Statement"><a href="#2-3-문-Statement" class="headerlink" title="2-3. 문(Statement)"></a>2-3. 문(Statement)</h3><p>의미상 한줄 한줄 각각의 <strong>명령, 지시문</strong>. 문은 파싱된 이후에 아무것도 남지 않게 되므로 <strong>값으로 쓸 수 없다.</strong> (Return을 할수 있는건 값, 식)<br>ex. 조건문, 반복문, 제어문, 식 문, 변수선언문 …</p>
+<h2 id="3-Type-Primitive-Reference"><a href="#3-Type-Primitive-Reference" class="headerlink" title="3. Type (Primitive, Reference)"></a>3. Type (Primitive, Reference)</h2><h3 id="3-1-기본값-Primitive"><a href="#3-1-기본값-Primitive" class="headerlink" title="3-1. 기본값(Primitive)"></a>3-1. 기본값(Primitive)</h3><p>참조되지 않고 복제되며 immutable한 자료형</p>
+<ul>
+<li>string</li>
+<li>number</li>
+<li>boolean</li>
+<li>undefined</li>
+<li>null</li>
+<li>NaN</li>
+</ul>
+<h3 id="3-2-참조값-Reference"><a href="#3-2-참조값-Reference" class="headerlink" title="3-2. 참조값(Reference)"></a>3-2. 참조값(Reference)</h3><p>복제되지 않고, 원본은 하나만 유지된 상태로, 주소만 공유되는 것(함수, 객체, 배열)<br>초기값을 설정할 때 해당 값의 메모리를 할당 받고, 값을 사용 할 때나 함수 호출 시 할당된 메모리를 읽고 쓰기만 한다.</p>
+<ul>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Data_structures" target="_blank" rel="noopener">https://developer.mozilla.org/ko/docs/Web/JavaScript/Data_structures</a></li>
+<li><a href="https://weicomes.tistory.com/133" target="_blank" rel="noopener">https://weicomes.tistory.com/133</a></li>
+<li><a href="https://poiemaweb.com/js-immutability" target="_blank" rel="noopener">https://poiemaweb.com/js-immutability</a></li>
+</ul>
+<h2 id="4-Truthy-amp-Falsy"><a href="#4-Truthy-amp-Falsy" class="headerlink" title="4. Truthy &amp; Falsy"></a>4. Truthy &amp; Falsy</h2><p>boolean 타입이 와야 하는 자리에 다른 타입의 값이 와도 실행되는 데 true로 되는 어떤 값들을 <code>truthy</code>, false로 취급 되는 어떤 값들을 <code>falsy</code>라고 부른다.<br><strong>false, null, undefined, 0, NaN, ‘’(빈문자열)</strong>을 제외한 모든 값들은 truthy이다.</p>
+<ul>
+<li><a href="https://developer.mozilla.org/ko/docs/Glossary/Truthy" target="_blank" rel="noopener">https://developer.mozilla.org/ko/docs/Glossary/Truthy</a></li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-29T10:59:19.000Z">2019-04-29</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/TIL/">TIL</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes read (About 317 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/29/first-week/">1주차(2019.04.20)</a>
+            
+        </h1>
+        <div class="content">
+            <ul>
+<li>학습공간 만들기</li>
+</ul>
+<hr>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">https://hexo.io/docs/deployment.html</a></p>
+<h3 id="1-Hexo-CLI-설치-및-블로그-생성"><a href="#1-Hexo-CLI-설치-및-블로그-생성" class="headerlink" title="1. Hexo CLI 설치 및 블로그 생성"></a>1. Hexo CLI 설치 및 블로그 생성</h3><p>(<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a> 설치 필요)</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="hljs-built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<h3 id="2-config-yum-파일-수정"><a href="#2-config-yum-파일-수정" class="headerlink" title="2. _config.yum 파일 수정"></a>2. _config.yum 파일 수정</h3><h4 id="2-1-사이트-정보"><a href="#2-1-사이트-정보" class="headerlink" title="2-1. 사이트 정보"></a>2-1. 사이트 정보</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Site</span></span><br><span class="line">title: Race<span class="hljs-string">'s Blog</span></span><br><span class="line"><span class="hljs-string">subtitle:</span></span><br><span class="line"><span class="hljs-string">description:</span></span><br><span class="line"><span class="hljs-string">keywords:</span></span><br><span class="line"><span class="hljs-string">author: racepark</span></span><br><span class="line"><span class="hljs-string">language:</span></span><br><span class="line"><span class="hljs-string">timezone:</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-2-git-설정"><a href="#2-2-git-설정" class="headerlink" title="2-2. git 설정"></a>2-2. git 설정</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Deployment</span></span><br><span class="line"><span class="hljs-comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="hljs-built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/racepark/racepark.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<h3 id="3-테마설치"><a href="#3-테마설치" class="headerlink" title="3. 테마설치"></a>3. 테마설치</h3><h4 id="3-1-themes폴더에-테마-설치-해당-폴더를-그대로-내려-받거나-git-clone-사용"><a href="#3-1-themes폴더에-테마-설치-해당-폴더를-그대로-내려-받거나-git-clone-사용" class="headerlink" title="3-1. themes폴더에 테마 설치 해당 폴더를 그대로 내려 받거나 git clone 사용"></a>3-1. <code>themes</code>폴더에 테마 설치 해당 폴더를 그대로 내려 받거나 git clone 사용</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="hljs-built_in">clone</span> &#123;themes repository&#125; themes/&#123;themes name&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-config-yml-파일-수정"><a href="#3-2-config-yml-파일-수정" class="headerlink" title="3-2. _config.yml 파일 수정"></a>3-2. <code>_config.yml</code> 파일 수정</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Extensions</span></span><br><span class="line"><span class="hljs-comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="hljs-comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line">theme: icarus</span><br></pre></td></tr></table></figure>
+<h4 id="3-3-배포"><a href="#3-3-배포" class="headerlink" title="3-3. 배포"></a>3-3. 배포</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean </span><br><span class="line">$ hexo generate </span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="4-포스트-작성-후-배포"><a href="#4-포스트-작성-후-배포" class="headerlink" title="4. 포스트 작성 후 배포"></a>4. 포스트 작성 후 배포</h3><h4 id="4-1-Create-a-new-post"><a href="#4-1-Create-a-new-post" class="headerlink" title="4-1. Create a new post"></a>4-1. Create a new post</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="hljs-string">"My New Post!"</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-2-Run-server"><a href="#4-2-Run-server" class="headerlink" title="4-2. Run server"></a>4-2. Run server</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h4 id="4-3-Generate-static-files"><a href="#4-3-Generate-static-files" class="headerlink" title="4-3. Generate static files"></a>4-3. Generate static files</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h4 id="4-4-Deploy-to-remote-sites"><a href="#4-4-Deploy-to-remote-sites" class="headerlink" title="4-4. Deploy to remote sites"></a>4-4. Deploy to remote sites</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<hr>
+<p>이전에 <code>jekyll</code>로 블로그를 잠깐 했었는 데, 스터디를 시작하면서 <code>hexo</code>로 다시 세팅해보았다.<br>ruby로 작업 했던 것보다 처음 세팅부터가 더 간단하게 느껴지긴 했다.<br>아직 손 봐야 할 부분도 많고 제대로 알고 사용하는 것도 아니지만,<br>이번 기회로 꾸준히 글도 작성하고 해서 블로그를 활성화 시켜봐야겠다!</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
 
     <div class="card">
     
@@ -259,10 +414,10 @@
 <div class="card card-transparent">
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <div class="pagination-previous">
-            <a class="is-flex-grow has-text-black-ter" href="/categories/TIL/">Préc</a>
+            <a class="is-flex-grow has-text-black-ter" href="/categories/TIL/">Previous</a>
         </div>
         <div class="pagination-next is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/categories/TIL/page/3/">Suiv</a>
+            <a class="is-flex-grow has-text-black-ter" href="/categories/TIL/page/3/">Next</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
             
@@ -309,17 +464,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Articles
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        12
+                        14
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Catégories
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -339,7 +494,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="http://github.com/ppoffice" target="_blank">
-                SUIVRE</a>
+                Follow</a>
         </div>
         
         
@@ -388,7 +543,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Liens
+            Links
         </h3>
         <ul class="menu-list">
         
@@ -426,7 +581,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Catégories
+                Categories
             </h3>
             <ul class="menu-list">
             <li>
@@ -435,7 +590,7 @@
                 <span class="level-item">TIL</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">12</span>
+                <span class="level-item tag">14</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/TIL/FEstudy/">
@@ -443,7 +598,7 @@
                 <span class="level-item">FEstudy</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/TIL/javascript30/">
@@ -463,7 +618,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nuage de tags
+            Tag Cloud
         </h3>
         <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a>
     </div>
@@ -477,8 +632,46 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Récents
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/06/09/sixth-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="6주차(2019.05.25)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-09T11:06:45.000Z">2019-06-09</time></div>
+                    <a href="/2019/06/09/sixth-week/" class="has-link-black-ter is-size-6">6주차(2019.05.25)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/06/09/fifth-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="5주차(2019.05.18)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-08T15:35:52.000Z">2019-06-09</time></div>
+                    <a href="/2019/06/09/fifth-week/" class="has-link-black-ter is-size-6">5주차(2019.05.18)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -537,44 +730,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/05/11/Vanilla-Js-30-08/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 08">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T05:30:22.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/Vanilla-Js-30-08/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 08</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/05/11/Vanilla-Js-30-07/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 07">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T04:52:22.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/Vanilla-Js-30-07/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 07</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -593,7 +748,7 @@
                     <span class="level-item">June 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -643,7 +798,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">11</span>
+                        <span class="tag is-grey">13</span>
                     </a>
                 </div>
                 
@@ -667,8 +822,46 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Récents
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/06/09/sixth-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="6주차(2019.05.25)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-09T11:06:45.000Z">2019-06-09</time></div>
+                    <a href="/2019/06/09/sixth-week/" class="has-link-black-ter is-size-6">6주차(2019.05.25)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/06/09/fifth-week/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="5주차(2019.05.18)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-08T15:35:52.000Z">2019-06-09</time></div>
+                    <a href="/2019/06/09/fifth-week/" class="has-link-black-ter is-size-6">5주차(2019.05.18)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/FEstudy/">FEstudy</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -727,44 +920,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/05/11/Vanilla-Js-30-08/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 08">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T05:30:22.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/Vanilla-Js-30-08/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 08</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/05/11/Vanilla-Js-30-07/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vanilla Js 30 - 07">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T04:52:22.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/Vanilla-Js-30-07/" class="has-link-black-ter is-size-6">Vanilla Js 30 - 07</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/javascript30/">javascript30</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -783,7 +938,7 @@
                     <span class="level-item">June 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -833,7 +988,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">11</span>
+                        <span class="tag is-grey">13</span>
                     </a>
                 </div>
                 
@@ -1012,9 +1167,9 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Articles',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Catégories',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
